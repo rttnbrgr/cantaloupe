@@ -1,0 +1,91 @@
+nav.menu {
+  
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100%;
+  background-color: $grey-light;
+  z-index: 2;
+  
+  // w/ no extra class
+  opacity: 1;
+  visibility: visible;
+  
+  display: flex;
+  text-align: center;
+  align-items: center;
+  transition: opacity .5s linear;
+  transition: all .5s linear;
+
+  // when the mobile nav is hidden
+  body.mobile-nav-hidden & {
+    opacity: 0;
+    visibility: hidden;
+
+    .wrapper a {
+      transform: translateY(-50%);
+      transition: all .5s linear;
+      // transition transform .7s cubic-bezier(0,.33,.2,1), opacity 1s cubic-bezier(.33,0,.2,1);      
+    }    
+  }
+
+
+  .wrapper {
+    width: 100%;
+
+    a {
+      display: block;
+      font-size: 1rem;
+      line-height: 2;
+      text-transform: uppercase;
+      letter-spacing: 0.3rem;
+      padding: 0.5rem 0;
+
+      transform: translateY(0);
+      transition: all .5s linear;
+
+    }
+
+  }
+  
+  // large screen
+  @include bp(large) {
+    
+    position: relative;
+    background-color: transparent;
+    width: auto;
+    height: auto;
+    
+    // undo hidden styles
+    body.mobile-nav-hidden & {
+      opacity: 1;
+      visibility: visible;
+
+      .wrapper a {
+        transform: translateY(0);
+      }
+    }
+
+    .highlighted & {
+      border-bottom: 1px solid $grey-dark;
+      color: $grey-light;
+    }
+
+    .wrapper{
+      a {
+        display: inline-block;
+        transform: translateY(0);
+        padding: .5rem 0.5rem 0rem;
+        margin: 0 0.5rem;
+        border-bottom: 1px solid transparent;
+        transition: all 0s linear;
+
+        &:hover {
+          border-color: $grey-light;
+        }
+
+      }
+    }
+  }
+}

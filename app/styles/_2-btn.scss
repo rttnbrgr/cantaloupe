@@ -1,0 +1,13 @@
+$btn-color: $grey-light;
+
+.btn {
+  padding: 1rem;
+  font-size: 1rem;
+  text-transform: uppercase;
+  border: 1px solid $btn-color;
+  background-color: transparent;
+  color: white;
+  display: inline-block;
+  text-rendering: optimizeLegibility;
+  margin-top: 1rem;
+}

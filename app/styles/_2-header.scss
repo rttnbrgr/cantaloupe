@@ -1,0 +1,76 @@
+/////////////////////////////
+// Header
+/////////////////////////////
+
+
+// menu
+header {
+  position: fixed;
+  padding: 1rem;
+  width: 100%;  
+  z-index: 11;
+  font-size: 1em;
+  color: white;
+  color: $grey-dark;
+
+  @include bp(large) {
+    font-size: 1.5em;
+    padding: 2rem 4rem;
+
+  }
+  
+  .brand {
+    position: relative;
+    z-index: 3;
+  }
+  
+  .mobile-trigger {
+    text-transform: uppercase;
+    position: relative;
+    z-index: 3;
+
+    i.fa { padding-left: 0.5rem; }
+  }
+
+  // .mobile-nav-close { display: inline; }
+  .mobile-nav-open { display: none; }
+  
+  // when nav 
+  body.mobile-nav-hidden & {
+    color: $grey-dark;    
+    color: $grey-light;    
+    color: white;
+    .mobile-nav-open { display: inline; }
+    .mobile-nav-close { display: none; }
+    
+    &.highlighted {
+      // background-color: white;
+      color: $grey-dark;
+    }
+
+
+  }
+
+  .header-inner {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &.highlighted {
+    background-color: $grey-light;
+  }
+
+  @include bp(large) {
+    
+    // hide the mobile toggle
+    .mobile-trigger { display: none; }
+
+    // 
+    .header-inner {
+      align-items: center;
+    }
+  }
+
+
+
+}
