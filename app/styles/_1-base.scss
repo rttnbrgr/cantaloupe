@@ -1,7 +1,28 @@
+/////////////////////////////
+// Base                   
+/////////////////////////////
+
+// Border Box
 /* apply a natural box layout model to all elements, but allowing components to change */
 html {
   box-sizing: border-box;
 }
 *, *:before, *:after {
   box-sizing: inherit;
+}
+
+// Typography
+body {
+  font-family: 'Inconsolata', monospace;
+  // background-color: dodgerblue;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  // color: $link-default;
+}
+
+p {
+  line-height: 1.6;
 }

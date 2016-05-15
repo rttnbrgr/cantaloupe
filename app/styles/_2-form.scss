@@ -1,0 +1,68 @@
+.form-wrapper {
+  background-color: rgba(14, 56, 36, 1)!important;
+  z-index: 1;
+  font-size: 1rem;
+
+  label {
+    display: block;
+  }
+
+  input {
+    display: block;
+    margin: 0 auto 1.5rem;
+    outline: 1px solid rgba(255,255,255, .35);
+    border: none;
+    background-color: transparent;
+    padding: 0 1em;
+    line-height: 2;
+    color: rgba(255,255,255, .35);
+    width: 100%;
+    @include transition(all, .5s linear);
+    
+    &:focus {
+      outline: 1px solid rgba(255,255,255, 1);
+      outline-offset: 0;
+      color: rgba(255,255,255, 1);
+    }
+  }
+
+  input[type="text"] + label {
+    // display: none;
+  }
+  
+  .form__checkbox-wrapper {
+    display: flex;    
+    justify-content: space-around;
+    padding: .5em 0;
+    border: 1px solid white;
+
+    // input {
+    input[type="checkbox"] {
+      outline: none;
+      border: none;
+      // display: inline-block;
+      visibility: hidden;      
+      display: none;
+      
+
+      & + label {
+        text-transform: uppercase;
+        color: rgba(255, 255, 255, .35);
+        // padding-bottom: 1em;
+        // border-bottom: 1px solid pink;
+        
+        &:hover { 
+          color: rgba(255, 255, 255, 1); 
+        }
+
+      }
+
+      &:checked + label { 
+        color: rgba(255, 255, 255, 1);        
+      }
+    }
+    
+
+  }  
+  display: none;
+}

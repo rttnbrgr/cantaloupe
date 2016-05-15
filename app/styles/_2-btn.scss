@@ -2,7 +2,7 @@ $btn-color: $grey-light;
 
 .btn {
   padding: 1rem;
-  font-size: 1rem;
+  font-size: 1.25rem;
   text-transform: uppercase;
   border: 1px solid $btn-color;
   background-color: transparent;
@@ -10,4 +10,21 @@ $btn-color: $grey-light;
   display: inline-block;
   text-rendering: optimizeLegibility;
   margin-top: 1rem;
+  min-width: 11.625rem;
+  padding: .65rem
+}
+
+form .btn {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.btn-text {
+	font-size: 1rem;
+	border-color: transparent;
+	border-bottom-color: $btn-color;
+	color: rgba(255,255,255, .35);
+	min-width: 0;
+	padding: .25rem;
 }

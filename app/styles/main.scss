@@ -30,150 +30,43 @@ $link-default: $grey-dark;
 
 
 
-// Typography
-@import url(https://fonts.googleapis.com/css?family=Inconsolata:400,700);
 
 
 /*==========================
 = Tools                    =
 ==========================*/
 
-
-
 // Normalize
 @import '0-normalize';
 // Bourbon
 @import 'bourbon/bourbon';
+// Inconsolata - Google WebFonts
+@import url(https://fonts.googleapis.com/css?family=Inconsolata:400,700);
 // Material Design Lite Demo
 @import '0-mdl-demo';
 
 
 
-/* apply a natural box layout model to all elements, but allowing components to change */
-html {
-  box-sizing: border-box;
-}
-*, *:before, *:after {
-  box-sizing: inherit;
-}
+/*==========================
+= Base                     =
+==========================*/
+
+@import '1-base';
+// Mixins
+@import '1-mixins';
+
+
+.hide { display: none!important }
 
 
 /*==========================
-= New Styles               =
+= Modules                  =
 ==========================*/
-
-body {
-  font-family: 'Inconsolata', monospace;
-  background-color: dodgerblue;
-}
-
-a {
-  text-decoration: none;
-  color: inherit;
-  // color: $link-default;
-}
-
-p {
-  line-height: 1.6;
-}
-
-
-// Mixins
-
-$bp-large: 75em; // 1200px
-
-@mixin bp($size) {
-  @if $size == large {
-    @media (min-width: $bp-large) { @content; }
-  } @else {
-    @media (min-width: $size) { @content; }
-  }  
-}
-
-
-footer { 
-  background-color: blue;
-  @include bp(large) {
-    background-color: pink; 
-  }
-  @include bp(35em) {
-    background-color: brown; 
-  }
-}
-
 
 // Header
 @import '2-header';
 // Nav
 @import '2-nav';
-
-// nav.menu {
-  
-//   position: fixed;
-//   top: 0;
-//   left: 0;
-//   height: 100vh;
-//   width: 100%;
-//   background-color: $grey-light;
-//   z-index: 10;
-//   opacity: 1;
-//   visibility: visible;
-  
-//   display: flex;
-//   text-align: center;
-//   align-items: center;
-//   transition: opacity .5s linear;
-//   transition: all .5s linear;
-
-//   body.mobile-nav-hidden & {
-//     opacity: 0;
-//     visibility: none;
-
-//     .wrapper a {
-//       transform: translateY(-50%);
-//       transition: all .5s linear;
-//       // transition transform .7s cubic-bezier(0,.33,.2,1), opacity 1s cubic-bezier(.33,0,.2,1);      
-//     }
-//   }
-
-//   .wrapper {
-//     width: 100%;
-
-//     a {
-//       display: block;
-//       font-size: 1rem;
-//       line-height: 2;
-//       text-transform: uppercase;
-//       letter-spacing: 0.3rem;
-//       padding: 0.5rem 0;
-
-//       transform: translateY(0);
-//       transition: all .5s linear;
-
-
-
-//     }
-
-//   }
-
-  
-
-// }
-
-// full pages tuff
-.fullscreen__wrapper {
-  height: 100vh;
-  position: relative;
-  &::after {
-    // content: "";
-    background-color: rgba(0,0,0,.3);
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-  }
-}
 
 .content-wrapper {
   color: white;
@@ -189,61 +82,42 @@ footer {
   max-width: 40em;
 }
 
-.fullpage__wrapper {  
-  
-  // background: transparent url('../images/landing-bg.jpg') right bottom no-repeat;
-  // background-size: cover;
-  // overflow: hidden;
-}
-
-.fullpage__bg {
-  position: fixed;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  // background: transparent url('../images/landing-bg.jpg') right bottom no-repeat;
-  // background-size: cover;
-  overflow: hidden;  
-  
-  &.layer--color {
-    background-color: rgba(14, 56, 36,.3);
-  }
-
-  &.layer--photo {
-    background: transparent url('../images/landing-bg.jpg') right bottom no-repeat;
-    background-size: cover;
-  }
-
-
-  &::before {
-    // content: "";
-    background-color: rgba(14, 56, 36,.3);
-    // background-color: #0E3824;
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-  }
-
-}
-
-
-$btn-color: $grey-light;
-
-.btn {
-  padding: 1rem;
-  font-size: 1rem;
-  text-transform: uppercase;
-  border: 1px solid $btn-color;
-  background-color: transparent;
-  color: white;
-  display: inline-block;
-  text-rendering: optimizeLegibility;
-  margin-top: 1rem;
-}
-
+@import '2-full-page';
+// Button
 @import '2-btn';
 // Footer
 @import '2-footer';
+// Form
+@import '2-form';
+
+
+/*==========================
+= Debug                    =
+==========================*/
+span.center-line {
+  position: fixed;
+  height: 100vh;
+  width: 1px;
+  left: 50%;
+  top: 0;
+  bottom: 0;
+  background-color: #fff;
+  z-index: 99;
+}
+
+// #Footer-Slope { 
+//   background-color: blue;  
+//   @include bp(medium) { background-color: purple; }
+//   @include bp(large) { background-color: pink;  }  
+// }
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,35 @@
+// full pages stuff
+.fullscreen__wrapper {
+  height: 100vh;
+  position: relative;
+  &::after {
+    // content: "";
+    background-color: rgba(0,0,0,.3);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+  }
+}
+
+.fullpage__wrapper {
+  // background: transparent url('../images/landing-bg.jpg') right bottom no-repeat;
+  // background-size: cover;
+  // overflow: hidden;
+}
+
+.fullpage__bg {
+  @include position(fixed, 0);
+  overflow: hidden;  
+  
+  &.layer--color {
+    background-color: rgba(14, 56, 36,.3);
+  }
+
+  &.layer--photo {
+    background: transparent url('../images/landing-bg.jpg') right bottom no-repeat;
+    background-size: cover;
+  }
+
+}
