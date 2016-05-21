@@ -1,7 +1,13 @@
+$color5: #f1c40f;
+$color6: #e67e22;
+
+
 .form-wrapper {
   background-color: rgba(14, 56, 36, 1)!important;
   z-index: 1;
   font-size: 1rem;
+  
+  
 
   label {
     display: block;
@@ -35,7 +41,20 @@
     justify-content: space-around;
     padding: .5em 0;
     border: 1px solid white;
+    font-size: 2rem;
+    
+    .form-group {
+      flex: 1;
+      padding: .5em 0;
 
+      &:hover {
+        cursor: pointer;
+
+      }
+    }
+    .form-group:nth-child(odd) { background-color: $color5; }
+    .form-group:nth-child(even) { background-color: $color6; }
+    
     // input {
     input[type="checkbox"] {
       outline: none;
@@ -51,6 +70,9 @@
         // padding-bottom: 1em;
         // border-bottom: 1px solid pink;
         
+        // background-color: $color6;
+        // &:nth-child(odd) { background-color: $color5; }
+        
         &:hover { 
           color: rgba(255, 255, 255, 1); 
         }
@@ -64,5 +86,24 @@
     
 
   }  
-  display: none;
+  
+  @include bp(medium) {
+    input {
+      font-size: 2rem;
+    }
+  }
+  
+  // display: none;
+  opacity: 0;
+  visibility: visible;
+  z-index: -1;
+  transition: all .5s linear;
+  
+  &.form-visible { 
+    // display: block; 
+    opacity: 1;
+    visibility: visible;
+    z-index: 1;
+  }
+
 }

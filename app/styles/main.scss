@@ -20,18 +20,6 @@ will be correctly compiled during `gulp serve` and `gulp`
  */
 
 
-
-// Colors
-$grey-light: #EDEDED;
-$grey-dark: #2F2F2F;
-
-$link-default: $grey-dark;
-
-
-
-
-
-
 /*==========================
 = Tools                    =
 ==========================*/
@@ -40,8 +28,9 @@ $link-default: $grey-dark;
 @import '0-normalize';
 // Bourbon
 @import 'bourbon/bourbon';
-// Inconsolata - Google WebFonts
+// Google WebFonts
 @import url(https://fonts.googleapis.com/css?family=Inconsolata:400,700);
+@import url(https://fonts.googleapis.com/css?family=Playfair+Display:400,700,900);
 // Material Design Lite Demo
 @import '0-mdl-demo';
 
@@ -51,12 +40,23 @@ $link-default: $grey-dark;
 = Base                     =
 ==========================*/
 
+// Base
 @import '1-base';
-// Mixins
+// Mixins & Bits
 @import '1-mixins';
 
-
-.hide { display: none!important }
+$main-color: rgba(14, 56, 36, 1);
+/* Colours for each box */
+$color1:#1abc9c;
+$color2:#3498db;
+$color3:#9b59b6;
+$color4:#34495e;
+$color5:#f1c40f;
+$color6:#e67e22;
+$color7:#e74c3c;
+$color8:#bdc3c7;
+$color9:#2ecc71;
+$color10:#16a085;
 
 
 /*==========================
@@ -112,8 +112,15 @@ span.center-line {
 // }
 
 
-
-
+// Typography
+h1 {
+  font-family: 'Playfair Display', serif;
+  font-weight: 700;
+  font-size: 5rem;
+  line-height: 1;
+  margin-bottom: 0.25em;
+  // text-transform: uppercase;
+}
 
 
 

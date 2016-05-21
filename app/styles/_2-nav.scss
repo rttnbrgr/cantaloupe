@@ -8,47 +8,59 @@ nav.menu {
   background-color: $grey-light;
   z-index: 2;
   
-  // w/ no extra class
-  opacity: 1;
-  visibility: visible;
-  
   display: flex;
   text-align: center;
   align-items: center;
   transition: opacity .5s linear;
   transition: all .5s linear;
 
-  // when the mobile nav is hidden
-  body.mobile-nav-hidden & {
-    opacity: 0;
-    visibility: hidden;
+  font-size: 1rem;
 
-    .wrapper a {
-      transform: translateY(-50%);
-      transition: all .5s linear;
-      // transition transform .7s cubic-bezier(0,.33,.2,1), opacity 1s cubic-bezier(.33,0,.2,1);      
-    }    
-  }
-
+  // closed mobile nav
+  opacity: 0;
+  visibility: hidden;
 
   .wrapper {
     width: 100%;
 
     a {
       display: block;
-      font-size: 1rem;
+      // font-size: 1rem;
       line-height: 2;
       text-transform: uppercase;
       letter-spacing: 0.3rem;
-      padding: 0.5rem 0;
-
-      transform: translateY(0);
+      padding: 0.5rem 0;      
+      // old transition -------------------------
+      // transform: translateY(0);
+      // transition: all .5s linear;
+      // ----------------------------------------
+      // swap starting point
+      transform: translateY(-50%);
       transition: all .5s linear;
-
+      // transition transform .7s cubic-bezier(0,.33,.2,1), opacity 1s cubic-bezier(.33,0,.2,1);
     }
-
   }
   
+  // open mobile nav
+  body.mobile-nav & {
+    opacity: 1;
+    visibility: visible;
+
+    .wrapper a {
+      transform: translateY(0);
+      transition: all .5s linear;
+    }
+  }
+
+  // bump size on tablet
+  @include bp(medium) {
+    font-size: 2rem;
+
+    .wrapper a {
+      padding: .5em 0;
+    }
+  }
+
   // large screen
   @include bp(large) {
     
@@ -56,36 +68,48 @@ nav.menu {
     background-color: transparent;
     width: auto;
     height: auto;
+
+    body.mobile-nav & {
+      color: white;
+    }
     
     // undo hidden styles
-    body.mobile-nav-hidden & {
-      opacity: 1;
-      visibility: visible;
+    // body.mobile-nav-hidden & {
+    //   opacity: 1;
+    //   visibility: visible;
 
-      .wrapper a {
-        transform: translateY(0);
-      }
-    }
-
+    //   .wrapper a {
+    //     transform: translateY(0);
+    //   }
+    // }
+    
+    opacity: 1;
+    visibility: visible;
+    
+    // header on scroll
     .highlighted & {
-      border-bottom: 1px solid $grey-dark;
-      color: $grey-light;
+      // border-bottom: 1px solid $grey-dark;
+      // color: $grey-light;
+      color: $grey-dark;
+
+      .wrapper a:hover { border-color: $grey-dark; }
     }
 
-    .wrapper{
-      a {
-        display: inline-block;
-        transform: translateY(0);
-        padding: .5rem 0.5rem 0rem;
-        margin: 0 0.5rem;
-        border-bottom: 1px solid transparent;
-        transition: all 0s linear;
+    .wrapper a {
+      display: inline-block;
+      transform: translateY(0);
+      padding: .5rem 0.5rem 0rem;
+      margin: 0 0.5rem;
+      border-bottom: 1px solid transparent;
+      transition: all 0s linear;
 
-        &:hover {
-          border-color: $grey-light;
-        }
+      font-size: 1.2rem;
 
+      &:hover {
+        border-color: $grey-light;
       }
+    
     }
+    
   }
 }

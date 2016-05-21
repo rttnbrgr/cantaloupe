@@ -43,20 +43,19 @@
     <!-- Your styles -->
     <link rel="stylesheet" href="styles/main.css">
   </head>
-  <body class="mobile-nav-hidden">
+  <body class="">
     
-    <header id="js-header" class="highlighte">
+    <header id="js-header" class="">
       
-      <div class="header-inner">
+      <div class="header-inner" id="js-header-2">
         
-        <div class="brand">
-          <i class="fa fa-camera"></i>
-          aaronreq
+        <div class="brand header__item">
+          <i class="fa fa-camera"></i>aaronreq
         </div>
         
-        <div class="mobile-trigger">
-          <span class="mobile-nav-open">Menu<i class="fa fa-chevron-down"></i></span>
-          <span class="mobile-nav-close">Close<i class="fa fa-chevron-up"></i></span>
+        <div class="mobile-trigger header__item" id="js-mobileNavToggle">
+          <span class="mobile-nav-open">MENU<i class="fa fa-chevron-down"></i></span>
+          <span class="mobile-nav-close">CLOSE<i class="fa fa-chevron-up"></i></span>
         </div>
         
         <nav class="fullpage menu hidden" id="js-nav">
@@ -83,11 +82,11 @@
           <h1>Hola</h1>  
           <p>My name is Aaron. I take pictures and shoot videos. I'm working on finishing up my website. Feel free to keep
           You probably haven't heard of them craft beer banjo, lomo chia blog actually letterpress retro. Selvage bicycle rights umami, plaid four dollar toast thundercats</p>
-          <button class="btn btn--follow" id="js-FormButton">Follow Me</button>          
+          <button class="btn btn--follow js-formToggle" id="js-formOpen">Follow Me</button>          
         </div>
       </div>
 
-      <div class="form-wrapper fullpage__bg layer--color" id="js-Form">
+      <div class="form-wrapper fullpage__bg layer--color" id="js-form">
         <div class="content-wrapper">
           <h1>Let's Work</h1>
           <p>Portland post-ironic cold-pressed letterpress kinfolk VHS. Asymmetrical ethical mumblecore squid, four dollar toast polaroid venmo banh mi paleo cold-pressed master cleanse kickstarter bespoke 8-bit lumbersexual.</p>
@@ -118,8 +117,8 @@
                 <label for="ContactServices-4" class="form__label--checkbox">Other</label>
               </div>
             </div>
-            <button id="js-FormClose" class="btn">Submit</button>
-            <button id="js-FormClose" class="btn btn-text">Close</button>
+            <button id="js-formSubmit" class="btn">Submit</button>
+            <button id="js-formClose" class="btn btn-text js-formToggle">Close</button>
             
           </form>
         </div>

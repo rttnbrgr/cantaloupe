@@ -79,17 +79,83 @@
     });
   }
 
-  //////////////////////////////////////////////////////////
+  // ////////////////////////////////////////////////////////
   // Your custom JavaScript goes here
   console.log('check one two');
 
   const body = document.getElementsByTagName('body')[0];
-  const header = document.getElementById('js-header');
-  const followBtn = document.getElementById('js-follow-btn');
-  // const nav = document.getElementById('js-nav');
-  let toggleMobileNav = function(){
-    body.classList.toggle('mobile-nav-hidden');
-  }
-  header.addEventListener('click', () => body.classList.toggle('mobile-nav-hidden'));
-  followBtn.addEventListener('click', () => body.classList.toggle('mobile-nav-hidden'));
+  // const header = document.getElementById('js-header-2');
+  const mobileNavToggle = document.getElementById('js-mobileNavToggle');
+  mobileNavToggle.addEventListener('click', function() {
+    body.classList.toggle('mobile-nav') 
+    console.log('mobileNavToggle just ran')
+  });
+
+  // const window = document.getElementBy
+
+  // this runs at page load
+  centerLine();
 })();
+
+const body = document.getElementsByTagName('body')[0];
+const header2 = document.getElementById('js-header-2');
+// const window = document.getElementsByTagName(window);
+const formButton = document.getElementById('js-formButton');
+const formToggleButtons = document.getElementsByClassName('js-formToggle')[0];
+const form = document.getElementById('js-form');
+// formButton.addEventListener('click', () => console.log('click') );
+// formButton.addEventListener('click', () => form.style.display = 'block' );
+// formToggleButtons.addEventListener('click', () => form.classList.toggle('form-visible') );
+document.getElementById('js-formOpen').addEventListener('click', () => form.classList.toggle('form-visible') );
+document.getElementById('js-formClose').addEventListener('click', function(event) {
+    event.preventDefault();
+    console.log('close')
+  });
+
+
+
+/*
+HIGHLIGHTER FUNCTION
+*/
+
+const header = document.getElementById('js-header');
+
+window.onscroll = function() {
+  let highLighted = header.classList.contains('highlighted');
+  let scrollBreak = 100;
+  let scrollTop = window.scrollY;
+  // console.log('SCROLLED +' + window.scrollY );
+  // console.log(scrolled);
+  // console.log(scrollTop);
+  
+  if ( scrollTop > scrollBreak ) {
+    if (!highLighted) {
+      console.log('do something');
+      header.classList.toggle('highlighted');
+    }
+  } else if (highLighted) {
+    console.log('highlighted, do something');
+    header.classList.toggle('highlighted');
+  }
+};
+
+// toggle center line
+function centerLine() {
+  document.getElementsByClassName('center-line')[0].classList.toggle('hide');
+}
+
+// toggle mobile nav
+function toggleMobileNav() {
+  body.classList.toggle('mobile-nav-hidden');
+  console.log('mobile-nav ran');
+}
+
+function headerDebug() {
+  header.classList.toggle('debug');
+}
+
+
+
+
+
+

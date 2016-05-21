@@ -9,9 +9,19 @@ $btn-color: $grey-light;
   color: white;
   display: inline-block;
   text-rendering: optimizeLegibility;
-  margin-top: 1rem;
+  margin-top: 2rem;
   min-width: 11.625rem;
-  padding: .65rem
+  padding: .65rem;
+
+  &:hover {
+    background-color: $btn-color;
+    color: $grey-dark;
+    cursor: pointer;
+  }
+
+  &:focus {
+    outline: none;
+  }
 }
 
 form .btn {
@@ -23,8 +33,15 @@ form .btn {
 .btn-text {
 	font-size: 1rem;
 	border-color: transparent;
-	border-bottom-color: $btn-color;
-	color: rgba(255,255,255, .35);
-	min-width: 0;
-	padding: .25rem;
+  border-bottom-color: $btn-color;
+	border-bottom-color: rgba(255,255,255, .35);
+  color: rgba(255,255,255, .35);
+  min-width: 0;
+  padding: .25rem;
+
+  &:hover {
+    color: rgba(255,255,255, 1);
+    background-color: transparent;
+    border-bottom-color: white;
+  }
 }

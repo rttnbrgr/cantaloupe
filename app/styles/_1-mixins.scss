@@ -1,5 +1,11 @@
-$bp-medium: 60em; // 1200px
-$bp-large: 75em; // 1200px
+// Colors
+$grey-light: #EDEDED;
+$grey-dark: #2F2F2F;
+$link-default: $grey-dark;
+
+// Sizes
+$bp-medium: 31.25em; 	// 960px
+$bp-large: 75em; 		// 1200px
 
 @mixin bp($size) {
   @if $size == medium {
@@ -11,3 +17,5 @@ $bp-large: 75em; // 1200px
   }  
 }
 
+// Helper Classes
+.hide { display: none!important }
