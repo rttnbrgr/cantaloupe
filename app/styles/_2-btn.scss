@@ -9,9 +9,12 @@ $btn-color: $grey-light;
   color: white;
   display: inline-block;
   text-rendering: optimizeLegibility;
-  margin-top: 2rem;
+  margin-top: 1rem;
   min-width: 11.625rem;
   padding: .65rem;
+  
+  padding: .65em;
+  margin-top: 1em;
 
   &:hover {
     background-color: $btn-color;
@@ -21,6 +24,10 @@ $btn-color: $grey-light;
 
   &:focus {
     outline: none;
+  }
+
+  @include bp(medium) {
+    font-size: 1.5rem;
   }
 }
 
@@ -43,5 +50,9 @@ form .btn {
     color: rgba(255,255,255, 1);
     background-color: transparent;
     border-bottom-color: white;
+  }
+
+  @include bp(medium) {
+    font-size: 1.25rem;
   }
 }

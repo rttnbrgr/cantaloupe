@@ -10,6 +10,7 @@ header {
   z-index: 11;
   font-size: 1em;
   color: white;
+  // border-color: $color2;
 
   .header-inner {
     display: flex;
@@ -40,6 +41,11 @@ header {
   &.highlighted {
     background-color: $grey-light;
     color: $grey-dark;
+    background-color: white;
+
+    // background-color: $main-color;
+    // color: 
+    border-color: $grey-dark;
   }
     
   @include bp(medium) {
@@ -51,22 +57,14 @@ header {
   @include bp(large) {
     font-size: 2em;
     padding: 2rem 4rem 2rem 3rem;
-
-    body.mobile-nav & {
-      color: white;
-    }
-
-    // no padding
-    .header__item { padding: 0; }
-    .brand {
-      padding: .5em;
-    }
+    // reset color if mobile toggle still on
+    body.mobile-nav & { color: white; }
+    // set padding
+    .header__item { padding: .5em; }    
     // hide the mobile toggle
     .mobile-trigger { display: none; }
     // align flex items
-    .header-inner {
-      align-items: baseline;
-    }
+    .header-inner { align-items: baseline; }
   }
 
   /* Debug stuff */

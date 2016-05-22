@@ -1,43 +1,37 @@
 nav.menu {
-  
-  position: fixed;
-  top: 0;
-  left: 0;
-  height: 100vh;
-  width: 100%;
-  background-color: $grey-light;
+  @include position(fixed, 0);
+  @include size(100% 100vh);
   z-index: 2;
-  
   display: flex;
-  text-align: center;
   align-items: center;
-  transition: opacity .5s linear;
-  transition: all .5s linear;
-
+  // font stuff
+  background-color: $grey-light;
+  text-align: center;
   font-size: 1rem;
-
-  // closed mobile nav
+  // mobile nav stuff; hidden by default
   opacity: 0;
   visibility: hidden;
+  @include transition( 
+    // transform .7s cubic-bezier(0,.33,.2,1),
+    opacity .5s cubic-bezier(.33,0,.2,1),
+    visibility .5s cubic-bezier(.33,0,.2,1)
+  );
 
   .wrapper {
     width: 100%;
 
     a {
       display: block;
-      // font-size: 1rem;
       line-height: 2;
       text-transform: uppercase;
       letter-spacing: 0.3rem;
-      padding: 0.5rem 0;      
-      // old transition -------------------------
-      // transform: translateY(0);
-      // transition: all .5s linear;
-      // ----------------------------------------
-      // swap starting point
+      padding: 0.5em 0;         
+      // transform && transition
       transform: translateY(-50%);
-      transition: all .5s linear;
-      // transition transform .7s cubic-bezier(0,.33,.2,1), opacity 1s cubic-bezier(.33,0,.2,1);
+      // long hand because libSass compile error
+      @include transition-property(transform);
+      @include transition-duration(.7s);
+      @include transition-timing-function(cubic-bezier(0,.33,.2,1) );
     }
   }
   
@@ -46,19 +40,19 @@ nav.menu {
     opacity: 1;
     visibility: visible;
 
-    .wrapper a {
-      transform: translateY(0);
-      transition: all .5s linear;
+    .wrapper a { 
+      transform: translateY(0); 
     }
   }
 
-  // bump size on tablet
+  // bump font-size 
+  // && padding on tablet
   @include bp(medium) {
     font-size: 2rem;
 
-    .wrapper a {
-      padding: .5em 0;
-    }
+    // .wrapper a {
+    //   padding: .5em 0;
+    // }
   }
 
   // large screen
@@ -68,48 +62,41 @@ nav.menu {
     background-color: transparent;
     width: auto;
     height: auto;
-
-    body.mobile-nav & {
-      color: white;
-    }
-    
-    // undo hidden styles
-    // body.mobile-nav-hidden & {
-    //   opacity: 1;
-    //   visibility: visible;
-
-    //   .wrapper a {
-    //     transform: translateY(0);
-    //   }
-    // }
-    
     opacity: 1;
     visibility: visible;
+    font-size: 1.4rem;
+    
+    // reset for mobile nav
+    body.mobile-nav & {
+      // color: white;
+      color: inherit;
+    }
     
     // header on scroll
     .highlighted & {
       // border-bottom: 1px solid $grey-dark;
       // color: $grey-light;
-      color: $grey-dark;
+      // color: $grey-dark;
 
-      .wrapper a:hover { border-color: $grey-dark; }
+      .wrapper a:hover { 
+        // border-color: $grey-dark; 
+        // border-color: dodgerblue; 
+      }
     }
 
     .wrapper a {
       display: inline-block;
-      transform: translateY(0);
-      padding: .5rem 0.5rem 0rem;
+      padding: 0.9rem 0.5rem 0.35rem;
       margin: 0 0.5rem;
+      line-height: 1;
       border-bottom: 1px solid transparent;
+      // reset from hidden mobile nav
+      transform: translateY(0);
       transition: all 0s linear;
-
-      font-size: 1.2rem;
-
+      // hover 
       &:hover {
-        border-color: $grey-light;
+        border-color: inherit;
       }
-    
     }
-    
   }
 }

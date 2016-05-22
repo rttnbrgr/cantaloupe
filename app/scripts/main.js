@@ -109,10 +109,25 @@ const form = document.getElementById('js-form');
 document.getElementById('js-formOpen').addEventListener('click', () => form.classList.toggle('form-visible') );
 document.getElementById('js-formClose').addEventListener('click', function(event) {
     event.preventDefault();
-    console.log('close')
+    console.log('close');
+    form.classList.toggle('form-visible');
   });
 
+form.addEventListener('submit', function(e) {
+  e.preventDefault();
+  console.log('submit!');
+})
 
+// add escape key to end form
+/*
+document.keyup(function(e) {
+  let formOpen = form.classList.contains('form-visible');  
+  if (e.keyCode == 27 && formOpen) { // escape key maps to keycode `27`
+    // <DO YOUR WORK HERE>
+    console.log('close-the-form');
+  }
+});
+*/
 
 /*
 HIGHLIGHTER FUNCTION
@@ -122,7 +137,7 @@ const header = document.getElementById('js-header');
 
 window.onscroll = function() {
   let highLighted = header.classList.contains('highlighted');
-  let scrollBreak = 100;
+  let scrollBreak = 40;
   let scrollTop = window.scrollY;
   // console.log('SCROLLED +' + window.scrollY );
   // console.log(scrolled);
@@ -153,6 +168,7 @@ function toggleMobileNav() {
 function headerDebug() {
   header.classList.toggle('debug');
 }
+
 
 
 

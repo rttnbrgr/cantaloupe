@@ -20,3 +20,10 @@ http://stackoverflow.com/questions/5085567/hasclass-with-javascript-or-site-with
 
 http://youmightnotneedjquery.com/
 http://screensiz.es/phone
+https://github.com/hebeworks/Solomon/issues/66
+
+My name is Aaron. I take pictures and shoot videos. I'm working on finishing up my website.
+
+http://stackoverflow.com/questions/3369593/how-to-detect-escape-key-press-with-javascript-or-jquery
+
+http://stackoverflow.com/questions/1160008/which-keycode-for-escape-key-with-jquery
