@@ -1,0 +1,25 @@
+{
+  "name": "cantaloupe",
+  "version": "1.0.0",
+  "description": "Landing page for aaronreq",
+  "main": "gulpfile.babel.js",
+  "dependencies": {},
+  "devDependencies": {
+    "browser-sync": "^2.12.10",
+    "gulp": "^3.9.1",
+    "harp": "^0.20.3"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tayox/cantaloupe.git"
+  },
+  "author": "Nathan Rothenberger",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tayox/cantaloupe/issues"
+  },
+  "homepage": "https://github.com/tayox/cantaloupe#readme"
+}
