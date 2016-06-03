@@ -1,18 +1,30 @@
 $color5: #f1c40f;
 $color6: #e67e22;
 
+.form-container {
+  display: none;
+}
+
 .form-wrapper {
   background-color: rgba(14, 56, 36, 1);
   font-size: 1rem;
   // flex stuff
-  @include display(flex);
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: center;
+  // @include display(flex);
+  // flex-direction: column;
+  // justify-content: flex-start;
+  // align-items: center;
+  display: block;
+  overflow-y: scroll;
+  -webkit-overflow-scrolling: touch;
   // hidden by default
-  z-index: 0;
+  display: none;
+  
+  /* leave it visible so we can track it
+  z-index: -1;
   opacity: 0;
   visibility: hidden;
+  */
+
   @include transition(
     opacity .5s cubic-bezier(.33,0,.2,1),
     visibility .5s cubic-bezier(.33,0,.2,1)
@@ -39,7 +51,8 @@ $color6: #e67e22;
     position: relative;
     @include position(relative, initial);    
 
-    overflow-y: scroll;
+    // overflow-y: scroll;
+    // -webkit-overflow-scrolling: touch;
     transform: translateY(15%);    
     @include transition-property(transform);
     @include transition-duration(.7s);
@@ -151,7 +164,7 @@ $color6: #e67e22;
 
   @include bp(large) {
     justify-content: center;
-    
+
     .form-group {
       padding: 0 0 1em;
     }
@@ -165,5 +178,5 @@ $color6: #e67e22;
   }
   
   
-
+  // display: none;
 }

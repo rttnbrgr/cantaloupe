@@ -34,6 +34,9 @@ import gulpLoadPlugins from 'gulp-load-plugins';
 import {output as pagespeed} from 'psi';
 import pkg from './package.json';
 
+var subtree = require('gulp-subtree');
+var clean = require('gulp-clean');
+
 const $ = gulpLoadPlugins();
 const reload = browserSync.reload;
 
@@ -260,3 +263,10 @@ gulp.task('generate-service-worker', ['copy-sw-scripts'], () => {
 // Load custom tasks from the `tasks` directory
 // Run: `npm install --save-dev require-dir` from the command-line
 // try { require('require-dir')('tasks'); } catch (err) { console.error(err); }
+
+// Deploy to github pages
+gulp.task('deploy', ['serve:dist'], () => {
+  return gulp.src('dist')
+    .pipe($.subtree())
+    .pipe($.clean());
+});

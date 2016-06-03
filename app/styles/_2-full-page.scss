@@ -1,25 +1,19 @@
+// content container
+main {  
+  position: relative;  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
 // full pages stuff
 .fullscreen__wrapper {
-  height: 100vh;
+  height: auto;
   position: relative;
-  &::after {
-    // content: "";
-    background-color: rgba(0,0,0,.3);
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-  }
 }
 
-.fullpage__wrapper {
-  // background: transparent url('../images/landing-bg.jpg') right bottom no-repeat;
-  // background-size: cover;
-  // overflow: hidden;
-}
-
-.fullpage__bg {
+.fullscreen__bg {
   @include position(fixed, 0);
   overflow: hidden;  
   
@@ -31,5 +25,20 @@
     background: transparent url('../images/landing-bg.jpg') right bottom no-repeat;
     background-size: cover;
   }
+}
 
+.content-wrapper {
+  position: relative;
+  color: white;
+  padding: 2rem;
+  z-index: 1;
+  max-width: 40rem;
+  
+  width: 100%;
+  text-align: center;
+  font-size: 1em;
+
+  @include bp(medium) {
+    max-width: 50rem;    
+  }
 }

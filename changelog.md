@@ -27,3 +27,5 @@ My name is Aaron. I take pictures and shoot videos. I'm working on finishing up 
 http://stackoverflow.com/questions/3369593/how-to-detect-escape-key-press-with-javascript-or-jquery
 
 http://stackoverflow.com/questions/1160008/which-keycode-for-escape-key-with-jquery
+
+https://www.thinkful.com/learn/a-guide-to-using-github-pages/

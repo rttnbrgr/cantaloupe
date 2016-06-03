@@ -33,7 +33,7 @@ footer {
       padding: 1em 2em;      
 
       svg {
-        @include size(3rem auto);
+        @include size(auto 5.75rem);
         fill: $grey-dark;
       }
     }
