@@ -1,0 +1,102 @@
+/////////////////////////////
+// Footer                   
+/////////////////////////////
+
+$footer-bg-color: white;
+
+footer {
+  position: relative;
+  margin-top: calc(16% + 6em);
+  margin-top: 40vh;
+  color: $grey-dark;
+  background-color: $footer-bg-color;
+  
+  svg.footer-slope {
+    width: 100vw;
+    position: absolute;
+    fill: $grey-light;
+    bottom: 100%;
+    margin-bottom: -1.2%;
+    height: 16.875vw;
+    left: 0;
+    fill: $footer-bg-color;
+  }
+
+  .footer__inner {
+    position: relative;
+    text-align: center;
+    padding: 0 0 2rem;
+
+    .footer__brand {
+      display: inline-block;
+      margin: 0 auto;
+      padding: 1em 2em;      
+
+      svg {
+        @include size(auto 5.75rem);
+        fill: $grey-dark;
+      }
+    }
+
+    .footer__tagline {
+      
+      span {
+        display: block;
+        
+        a {
+          display: inline-block;
+          border-bottom: 1px solid $grey-dark;          
+          line-height: 1.2;
+        }
+      }
+    }
+
+    .footer__social {    
+      display: flex;
+      justify-content: center;
+      padding: 1rem;
+
+      a {
+        font-size: 1.5rem;
+        padding: 0.7rem;
+        width: 2em;       
+      }
+    }
+    
+    @include bp(large) {
+      text-align: left;
+      padding: 0;
+
+      .footer__brand {
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        @include position(absolute, null 0 0 null);
+      }
+
+      .footer__tagline {
+        text-align: left;
+        display: inline-block;
+        margin-bottom: 0;
+      }
+
+      .footer__social {
+        width: auto;
+        justify-content: flex-start;
+        padding: 0;
+        width: 50%;
+        margin-left: -1rem;
+        a {
+          font-size: 2rem;
+          padding: 1rem;
+          width: initial;
+
+        }
+      }
+    }
+  }
+  
+  @include bp(large) {
+    padding: 0 4rem 2rem;
+  }
+}

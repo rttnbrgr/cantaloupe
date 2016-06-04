@@ -1,0 +1,44 @@
+// content container
+main {  
+  position: relative;  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+// full pages stuff
+.fullscreen__wrapper {
+  height: auto;
+  position: relative;
+}
+
+.fullscreen__bg {
+  @include position(fixed, 0);
+  overflow: hidden;  
+  
+  &.layer--color {
+    background-color: rgba(14, 56, 36,.3);
+  }
+
+  &.layer--photo {
+    background: transparent url('../images/landing-bg.jpg') right bottom no-repeat;
+    background-size: cover;
+  }
+}
+
+.content-wrapper {
+  position: relative;
+  color: white;
+  padding: 2rem;
+  z-index: 1;
+  max-width: 40rem;
+  
+  width: 100%;
+  text-align: center;
+  font-size: 1em;
+
+  @include bp(medium) {
+    max-width: 50rem;    
+  }
+}

@@ -1,0 +1,79 @@
+/////////////////////////////
+// Header
+/////////////////////////////
+
+
+// menu
+header {
+  position: fixed;
+  width: 100%;  
+  z-index: 11;
+  font-size: 1em;
+  color: white;
+  // border-color: $color2;
+
+  .header-inner {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .header__item {
+    position: relative;
+    z-index: 3;
+    padding: 1rem;
+  }
+
+  .brand i.fa { padding-right: 0.5em; }  
+  .mobile-trigger i.fa { padding-left: 0.5em; }
+  
+  // close the other mobile trigger
+  .mobile-nav-close { display: none; }
+
+  // when the mobile nav opens
+  body.mobile-nav & {
+    color: $grey-dark;
+    .mobile-nav-close { display: inline; }
+    .mobile-nav-open { display: none; }
+  }  
+  
+  @include transition(background-color .14s ease-in-out);
+  
+  &.highlighted {
+    background-color: $grey-light;
+    color: $grey-dark;
+    background-color: white;
+
+    // background-color: $main-color;
+    // color: 
+    border-color: $grey-dark;
+  }
+    
+  @include bp(medium) {
+    font-size: 1.25rem;
+
+    .header__item { padding: 2rem; }
+  }
+  
+  @include bp(large) {
+    font-size: 2em;
+    padding: 2rem 4rem 2rem 3rem;
+    // reset color if mobile toggle still on
+    body.mobile-nav & { color: white; }
+    // set padding
+    .header__item { padding: .5em; }    
+    // hide the mobile toggle
+    .mobile-trigger { display: none; }
+    // align flex items
+    .header-inner { align-items: baseline; }
+  }
+
+  /* Debug stuff */
+  &.debug {
+    border: 3px solid $color3;
+    .brand { background-color: $color6; }
+    .mobile-trigger { background-color: $color1; }  
+    @include bp(medium) { border: 3px solid $color5; }
+    @include bp(large) { border: 3px solid $color6; }
+  }
+}
+

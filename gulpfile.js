@@ -16,19 +16,20 @@ gulp.task('serve', function () {
       open: false,
       /* Hide the notification. It gets annoying */
       notify: {
-        styles: ['opacity: 0.5', 'position: absolute']
+        // styles: ['opacity: 0.5', 'position: absolute']
       }
     });
     /**
      * Watch for scss changes, tell BrowserSync to refresh main.css
      */
-    gulp.watch(["*.css", "*.sass", "*.scss", "*.less", "assets/css/**/*.scss", "assets/css/*.scss"], function () {
+    gulp.watch(["*.css", "*.scss", "assets/styles/**/*.scss", "assets/styles/*.scss"], function () {
       reload("main.css", {stream: true});
+      console.log('style change');
     });
     /**
      * Watch for all other changes, reload the whole page
      */
-    gulp.watch(["*.html", "*.ejs", "*.jade", "*.js", "*.json", "*.md", "**/*.jade"], function () {
+    gulp.watch(["*.html", "*.jade", "*.js", 'assets/scripts/*.js', "*.json", "*.md", "**/*.jade"], function () {
       reload();
       console.log('watch noticed a change. reloading');
     });

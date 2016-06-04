@@ -1,0 +1,102 @@
+nav.menu {
+  @include position(fixed, 0);
+  @include size(100% 100vh);
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  // font stuff
+  background-color: $grey-light;
+  text-align: center;
+  font-size: 1rem;
+  // mobile nav stuff; hidden by default
+  opacity: 0;
+  visibility: hidden;
+  @include transition( 
+    // transform .7s cubic-bezier(0,.33,.2,1),
+    opacity .5s cubic-bezier(.33,0,.2,1),
+    visibility .5s cubic-bezier(.33,0,.2,1)
+  );
+
+  .wrapper {
+    width: 100%;
+
+    a {
+      display: block;
+      line-height: 2;
+      text-transform: uppercase;
+      letter-spacing: 0.3rem;
+      padding: 0.5em 0;         
+      // transform && transition
+      transform: translateY(-50%);
+      // long hand because libSass compile error
+      @include transition-property(transform);
+      @include transition-duration(.7s);
+      @include transition-timing-function(cubic-bezier(0,.33,.2,1) );
+    }
+  }
+  
+  // open mobile nav
+  body.mobile-nav & {
+    opacity: 1;
+    visibility: visible;
+
+    .wrapper a { 
+      transform: translateY(0); 
+    }
+  }
+
+  // bump font-size 
+  // && padding on tablet
+  @include bp(medium) {
+    font-size: 2rem;
+
+    // .wrapper a {
+    //   padding: .5em 0;
+    // }
+  }
+
+  // large screen
+  @include bp(large) {
+    
+    position: relative;
+    background-color: transparent;
+    width: auto;
+    height: auto;
+    opacity: 1;
+    visibility: visible;
+    font-size: 1.4rem;
+    
+    // reset for mobile nav
+    body.mobile-nav & {
+      // color: white;
+      color: inherit;
+    }
+    
+    // header on scroll
+    .highlighted & {
+      // border-bottom: 1px solid $grey-dark;
+      // color: $grey-light;
+      // color: $grey-dark;
+
+      .wrapper a:hover { 
+        // border-color: $grey-dark; 
+        // border-color: dodgerblue; 
+      }
+    }
+
+    .wrapper a {
+      display: inline-block;
+      padding: 0.9rem 0.5rem 0.35rem;
+      margin: 0 0.5rem;
+      line-height: 1;
+      border-bottom: 1px solid transparent;
+      // reset from hidden mobile nav
+      transform: translateY(0);
+      transition: all 0s linear;
+      // hover 
+      &:hover {
+        border-color: inherit;
+      }
+    }
+  }
+}

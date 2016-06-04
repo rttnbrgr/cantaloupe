@@ -3,6 +3,7 @@ $color6: #e67e22;
 
 .form__container {
   display: none;
+  @include bp(large) { display: block; }
 }
 
 .form-wrapper {
@@ -17,7 +18,7 @@ $color6: #e67e22;
   overflow-y: scroll;
   -webkit-overflow-scrolling: touch;
   // hidden by default
-  display: none;
+  // display: none;
   
   /* leave it visible so we can track it
   z-index: -1;

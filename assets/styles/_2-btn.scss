@@ -27,15 +27,18 @@ $btn-color: $grey-light;
   }
 
   @include bp(medium) {
-    font-size: 1.5rem;    
+    font-size: 1.5rem;
   }
-
-  color: blue;
 
   &.btn--form { 
     display: none; 
-    @include bp(large) { display: block; }
   }
+  
+  @include bp(large) { 
+    &.btn--form { display: inline-block; }
+    &.btn--social { display: none; }
+  }
+
 
 }
 
@@ -64,6 +67,3 @@ form .btn {
     font-size: 1.25rem;
   }
 }
-
-
-.btn { color:green; }
