@@ -41,7 +41,7 @@ formCloseBtn.addEventListener('click', function(event) {
 });
 
 form.addEventListener('submit', function(e) {
-  e.preventDefault();
+  // e.preventDefault();
   console.log('form submit!');
 });
 
