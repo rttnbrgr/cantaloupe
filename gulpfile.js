@@ -57,21 +57,34 @@ gulp.task('serve', function () {
 
 gulp.task('test', function() {
 	console.log('Gulp moving fast, you need to cut it');
+	console.log(sources.images);
 });
 
 
+
+/*
+ *  CUSTOM COMPILE
+ */
+
 var jade = require('gulp-jade');
+var sass = require('gulp-sass');
 
 var sources = {
-  jade: './*.jade'
-  scss: './assets/'
+  jade: './*.jade',
+  root: ['CNAME', 'robots.txt', 'favicon.ico'],
+  style: 'assets/styles/*.scss',
+  script: 'assets/scripts/*.js',
+  images: ['assets/images/**/*.png','assets/images/**/*.jpg','assets/images/**/*.gif','assets/images/**/*.jpeg']
 }
 
 var destination = {
-  public: 'jade-test'
+  script: 'test-public/assets/scripts',
+  style:  'test-public/assets/styles',
+  img:  'test-public/assets/images',
+  public: 'test-public'
 }
 
-// Compile and copy Jade
+// Jade Compile
 gulp.task('compile-jade', function(event) {
   return gulp.src(sources.jade)
     .pipe(jade({
@@ -79,4 +92,37 @@ gulp.task('compile-jade', function(event) {
     }))
     .pipe(gulp.dest(destination.public))
 });
+
+/*
+ * Sass Compile
+ */
+gulp.task('compile-style', function() {
+  return gulp.src(sources.style)
+    .pipe(sass().on('error', sass.logError))
+    .pipe(gulp.dest(destination.style));
+});
+
+gulp.task('compile-scripts', function() {
+  return gulp.src(sources.script)
+    .pipe(gulp.dest(destination.script));
+});
+
+gulp.task('compile-img', function() {
+  return gulp.src(sources.images)
+    .pipe(gulp.dest(destination.img));
+});
+
+gulp.task('compile-other', function() {
+  return gulp.src(sources.root)
+    .pipe(gulp.dest(destination.public));
+});
+
+gulp.task('compile', ['compile-jade', 'compile-style', 'compile-scripts', 'compile-img', 'compile-other'], function() {
+	console.log('compile complete');
+})
+
+
+
+
+
 
