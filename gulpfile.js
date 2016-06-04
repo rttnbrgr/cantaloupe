@@ -2,14 +2,13 @@ var gulp        = require('gulp');
 var browserSync = require('browser-sync');
 var reload      = browserSync.reload;
 var harp        = require('harp');
-var surge       = require('gulp-surge');
-
+// var surge       = require('gulp-surge');
+var shell       = require('gulp-shell');
 
 /**
  * Serve the Harp Site from the src directory
  */
 gulp.task('serve', function () {
-  console.log('serve started');
   harp.server(__dirname, {
     port: 9000
   }, function () {
@@ -36,13 +35,15 @@ gulp.task('serve', function () {
       console.log('watch noticed a change. reloading');
     });
   })
-  console.log('serve ended')
 });
 
-// gulp.tast('build'), function() {
+
+
+// gulp.task('build'), function() {
 // 	return gulp.src('')
 // 		.pipe(shell ([
-// 			'harp compile . dist'
+// 			// 'harp compile . dist'
+// 			'harp compile'
 // 		]))
 // }
 
