@@ -1,0 +1,32 @@
+section.form__container
+	.fullscreen__bg.form-wrapper.form-visibl#js-form
+		.content-wrapper
+			
+			h1 Let's Work
+			p Portland post-ironic cold-pressed letterpress kinfolk VHS. Asymmetrical ethical mumblecore squid, four dollar toast polaroid venmo banh mi paleo cold-pressed master cleanse kickstarter bespoke 8-bit lumbersexual.
+			
+			form.contact-form(action="") 
+
+				label.hide(for="ContactName") Name
+				input#ContactName(type="text" placeholder="Name")
+				
+				label.hide(for="ContactEmail") Email
+				input#ContactEmail(type="text" placeholder="Email")
+
+				label Services
+				.form__checkbox-wrapper
+					.form-group
+						input#ContactServices-1(type="checkbox" value="music")
+						label(for="ContactServices-1").form__label--checkbox Music
+					.form-group
+						input#ContactServices-2(type="checkbox" value="photo")
+						label(for="ContactServices-2").form__label--checkbox Photo
+					.form-group
+						input#ContactServices-3(type="checkbox" value="video")
+						label(for="ContactServices-3").form__label--checkbox Video
+					.form-group
+						input#ContactServices-4(type="checkbox" value="other")
+						label(for="ContactServices-4").form__label--checkbox Other
+
+				button#js-formSubmit.btn Submit
+				button#js-formClose.btn.btn-text.js-formToggle Close
