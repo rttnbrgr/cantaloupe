@@ -28,3 +28,5 @@ http://stackoverflow.com/questions/3369593/how-to-detect-escape-key-press-with-j
 http://stackoverflow.com/questions/1160008/which-keycode-for-escape-key-with-jquery
 
 https://www.thinkful.com/learn/a-guide-to-using-github-pages/
+
+http://stackoverflow.com/questions/6989653/jade-links-inside-a-paragraph
