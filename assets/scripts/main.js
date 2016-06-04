@@ -22,33 +22,18 @@ navOpenBtn.addEventListener('click', function() {
 })
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-// const header2 = document.getElementById('js-header-2');
-// const window = document.getElementsByTagName(window);
-// const formButton = document.getElementById('js-formButton');
-// const formToggleButtons = document.getElementsByClassName('js-formToggle')[0];
-const form = document.getElementById('js-form');
-// formButton.addEventListener('click', () => console.log('click') );
-// formButton.addEventListener('click', () => form.style.display = 'block' );
-// formToggleButtons.addEventListener('click', () => form.classList.toggle('form-visible') );
-const formOpenBtn = document.getElementById('js-formOpen');
-const formCloseBtn = document.getElementById('js-formClose');
+/*
+ * Open & Close the form
+ */
+var form = document.getElementById('js-form');
+var formOpenBtn = document.getElementById('js-formOpen');
+var formCloseBtn = document.getElementById('js-formClose');
 
 formOpenBtn.addEventListener('click', function() {
   form.classList.toggle('form-visible');
   console.log('form open');
 });
+
 formCloseBtn.addEventListener('click', function(event) {
   event.preventDefault();
   console.log('form close');
@@ -80,7 +65,7 @@ document.keyup(function(e) {
 HIGHLIGHTER FUNCTION
 */
 
-const header = document.getElementById('js-header');
+var header = document.getElementById('js-header');
 
 window.onscroll = function() {
   let highLighted = header.classList.contains('highlighted');
