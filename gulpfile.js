@@ -4,6 +4,7 @@ var reload      = browserSync.reload;
 var harp        = require('harp');
 var surge       = require('gulp-surge');
 
+
 /**
  * Serve the Harp Site from the src directory
  */
@@ -52,7 +53,6 @@ gulp.task('surge', function() {
   })
 
 })
-
 
 gulp.task('default', function() {
 	console.log('Gulp moving fast, you need to cut it');

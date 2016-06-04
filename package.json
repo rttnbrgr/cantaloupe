@@ -8,7 +8,7 @@
     "browser-sync": "^2.12.10",
     "gulp": "^3.9.1",
     "gulp-surge": "^0.1.0",
-    "harp": "^0.20.3"
+    "harp": "^0.20.3"    
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
