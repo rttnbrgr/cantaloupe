@@ -47,14 +47,36 @@ gulp.task('serve', function () {
 // 		]))
 // }
 
-gulp.task('surge', function() {
-	return surge({
-    project: 'dist',            // Path to your static build directory
-    domain: 'aaronreq.surge.sh'  // Your domain or Surge subdomain
-  })
+// gulp.task('surge', function() {
+// 	return surge({
+//     project: 'dist',            // Path to your static build directory
+//     domain: 'aaronreq.surge.sh'  // Your domain or Surge subdomain
+//   })
 
-})
+// })
 
-gulp.task('default', function() {
+gulp.task('test', function() {
 	console.log('Gulp moving fast, you need to cut it');
 });
+
+
+var jade = require('gulp-jade');
+
+var sources = {
+  jade: './*.jade'
+  scss: './assets/'
+}
+
+var destination = {
+  public: 'jade-test'
+}
+
+// Compile and copy Jade
+gulp.task('compile-jade', function(event) {
+  return gulp.src(sources.jade)
+    .pipe(jade({
+    	pretty: true
+    }))
+    .pipe(gulp.dest(destination.public))
+});
+
