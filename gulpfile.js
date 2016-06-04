@@ -2,6 +2,7 @@ var gulp        = require('gulp');
 var browserSync = require('browser-sync');
 var reload      = browserSync.reload;
 var harp        = require('harp');
+var surge       = require('gulp-surge');
 
 /**
  * Serve the Harp Site from the src directory
@@ -36,6 +37,21 @@ gulp.task('serve', function () {
   })
   console.log('serve ended')
 });
+
+// gulp.tast('build'), function() {
+// 	return gulp.src('')
+// 		.pipe(shell ([
+// 			'harp compile . dist'
+// 		]))
+// }
+
+gulp.task('surge', function() {
+	return surge({
+    project: 'dist',            // Path to your static build directory
+    domain: 'aaronreq.surge.sh'  // Your domain or Surge subdomain
+  })
+
+})
 
 
 gulp.task('default', function() {
