@@ -1,8 +1,11 @@
 // this runs at page load
 (function() {
   centerLine();
+  console.log('hello');
 })();
 
+
+console.log('inside main.js');
 /*
  * Open & Close the mobile nav
  */
@@ -68,9 +71,9 @@ HIGHLIGHTER FUNCTION
 var header = document.getElementById('js-header');
 
 window.onscroll = function() {
-  let highLighted = header.classList.contains('highlighted');
-  let scrollBreak = 40;
-  let scrollTop = window.scrollY;
+  var highLighted = header.classList.contains('highlighted');
+  var scrollBreak = 40;
+  var scrollTop = window.scrollY;
   // console.log('SCROLLED +' + window.scrollY );
   // console.log(scrolled);
   // console.log(scrollTop);
@@ -100,3 +103,6 @@ function centerLine() {
 // function headerDebug() {
 //   header.classList.toggle('debug');
 // }
+
+
+console.log('end of main.js');

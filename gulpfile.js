@@ -2,7 +2,7 @@ var gulp        = require('gulp');
 var browserSync = require('browser-sync');
 var reload      = browserSync.reload;
 var harp        = require('harp');
-// var surge       = require('gulp-surge');
+var surge       = require('gulp-surge');
 var shell       = require('gulp-shell');
 
 /**
@@ -60,8 +60,6 @@ gulp.task('test', function() {
 	console.log(sources.images);
 });
 
-
-
 /*
  *  CUSTOM COMPILE
  */
@@ -78,10 +76,11 @@ var sources = {
 }
 
 var destination = {
-  script: 'test-public/assets/scripts',
-  style:  'test-public/assets/styles',
-  img:  'test-public/assets/images',
-  public: 'test-public'
+  script: 'dist/assets/scripts',
+  style:  'dist/assets/styles',
+  img:    'dist/assets/images',
+  public: 'dist',
+  surge:  'aaronreq.surge.sh'
 }
 
 // Jade Compile
@@ -93,25 +92,26 @@ gulp.task('compile-jade', function(event) {
     .pipe(gulp.dest(destination.public))
 });
 
-/*
- * Sass Compile
- */
+ // Sass Compile
 gulp.task('compile-style', function() {
   return gulp.src(sources.style)
     .pipe(sass().on('error', sass.logError))
     .pipe(gulp.dest(destination.style));
 });
 
+// Script Compile
 gulp.task('compile-scripts', function() {
   return gulp.src(sources.script)
     .pipe(gulp.dest(destination.script));
 });
 
+// Img compile
 gulp.task('compile-img', function() {
   return gulp.src(sources.images)
     .pipe(gulp.dest(destination.img));
 });
 
+// Other compile
 gulp.task('compile-other', function() {
   return gulp.src(sources.root)
     .pipe(gulp.dest(destination.public));
@@ -122,6 +122,15 @@ gulp.task('compile', ['compile-jade', 'compile-style', 'compile-scripts', 'compi
 })
 
 
+/*
+ * Surge Deploy
+ */
+gulp.task('deploy', ['compile'], function() {
+	return surge({
+    project: destination.public,  // Path to your static build directory
+    domain:  destination.surge    // Your domain or Surge subdomain
+  })
+})
 
 
 
