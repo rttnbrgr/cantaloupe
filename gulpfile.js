@@ -71,7 +71,7 @@ var sources = {
   jade: './*.jade',
   root: ['CNAME', 'robots.txt', 'favicon.ico'],
   style: 'assets/styles/*.scss',
-  script: 'assets/scripts/*.js',
+  script: 'assets/scripts/**/*.js',
   images: ['assets/images/**/*.png','assets/images/**/*.jpg','assets/images/**/*.gif','assets/images/**/*.jpeg']
 }
 
