@@ -43,10 +43,35 @@ formCloseBtn.addEventListener('click', function(event) {
   form.classList.toggle('form-visible');
 });
 
-form.addEventListener('submit', function(e) {
-  // e.preventDefault();
-  console.log('form submit!');
-});
+// handle ajax form. turned off
+// var theForm = document.getElementsByTagName('form')[0]
+// theForm.addEventListener('submit', function(e) {
+  
+//   e.preventDefault();
+//   // var data = form.serialize();
+//   console.log('form submit!');
+//   console.log( $(this) );
+
+//   var $form = $(this);    
+//     // serialize the data
+//   var formData = $form.serialize();
+//   console.log(formData);
+
+//   $.ajax({
+//     url: "https://formspree.io/nroth10@gmail.com", 
+//     method: "POST",
+//     data: formData,
+//     dataType: "json",
+//     success: function(msg){
+//       alert("form post success!");
+//         //$("#stayInformed").modal('hide');
+//     },
+//     error: function(){
+//         alert("form post failed");
+//     } 
+//   });
+
+// });
 
 // add escape key to end form
 /*
