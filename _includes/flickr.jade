@@ -1,0 +1,46 @@
+section#flickr.flickr-test
+	.container
+		h1 test here
+		p some text
+		p more text
+		#flickr-target
+			a(href="#") Please Enable Javascript to see photos
+script.
+	$(function(){
+		console.log('here');
+		$('#flickr-target > a').remove();
+
+		// loading gif	
+		//- jQuery('<img alt="" />').attr('id', 'loader').attr('src', 'ajax-loader.gif').appendTo('#image-container');
+		
+		//assign your api key equal to a variable
+		var apiKey = 'df59b5cbaab070441f3a940bfcc04b11';
+		var apiRequest = 'https://api.flickr.com/services/rest/?method=flickr.people.getPublicPhotos&api_key=df59b5cbaab070441f3a940bfcc04b11&user_id=136931153%40N05&format=json&per_page=499&page=3&jsoncallback=?'
+
+		//the initial json request to flickr
+		$.getJSON(apiRequest, function(data) {
+			
+			// loop thru photos	
+			$.each(data.photos.photo, function(i, item) {
+				console.log(this);
+
+				//build the url of the photo in order to link to it
+				var photoURL = 'http://farm' + item.farm + '.static.flickr.com/' + item.server + '/' + item.id + '_' + item.secret + '_m.jpg'
+
+				console.log(photoURL);
+
+				//turn the photo id into a variable
+				var photoID = item.id;
+
+
+				//create an imgCont string variable which will hold all the link location, title, author link, and author name into a text string
+				//- var imgCont = '<div class="image-container" style="background: url(' + photoURL + ');"></div>';
+				var imgCont = "<img src=" + photoURL + ">";
+													
+				//append the 'imgCont' variable to the document
+				$(imgCont).appendTo('#flickr-target');
+
+			});
+		});
+		
+	})

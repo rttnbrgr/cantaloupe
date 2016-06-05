@@ -30,3 +30,23 @@ http://stackoverflow.com/questions/1160008/which-keycode-for-escape-key-with-jqu
 https://www.thinkful.com/learn/a-guide-to-using-github-pages/
 
 http://stackoverflow.com/questions/6989653/jade-links-inside-a-paragraph
+
+### Relevant Docs
+https://browsersync.io/docs
+http://harpjs.com/docs
+http://jade-lang.com/
+https://formspree.io/
+
+### Gulp
+https://css-tricks.com/gulp-for-beginners/
+https://markgoodyear.com/2014/01/getting-started-with-gulp/
+
+### Harp
+https://powderkeglabs.com/blog/harpjs-and-github-pages.html
+http://charliegleason.com/articles/harp-gulp-and-browsersync
+http://mattlambert.ca/blog/tips-for-writing-modular-css/
+http://mattlambert.ca/blog/how-to-use-the-harp-js-static-site-generator/
+http://nathanburkiewicz.com/articles/harp-gulp-sass
+
+### Form
+http://stackoverflow.com/questions/1145588/cannot-properly-set-the-accept-http-header-with-jquery
