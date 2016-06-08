@@ -50,3 +50,7 @@ http://nathanburkiewicz.com/articles/harp-gulp-sass
 
 ### Form
 http://stackoverflow.com/questions/1145588/cannot-properly-set-the-accept-http-header-with-jquery
+
+### Github
+http://lea.verou.me/2011/10/easily-keep-gh-pages-in-sync-with-master/
+http://oli.jp/2011/github-pages-workflow/

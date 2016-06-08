@@ -39,13 +39,13 @@ gulp.task('serve', function () {
 
 
 
-// gulp.task('build'), function() {
-// 	return gulp.src('')
-// 		.pipe(shell ([
-// 			// 'harp compile . dist'
-// 			'harp compile'
-// 		]))
-// }
+gulp.task('harp-build'), function() {
+	return gulp.src('')
+		.pipe(shell ([
+			// 'harp compile . test'
+			'harp compile'
+		]))
+}
 
 // gulp.task('surge', function() {
 // 	return surge({
