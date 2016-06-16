@@ -2,8 +2,11 @@ $color5: #f1c40f;
 $color6: #e67e22;
 
 .form__container {
-  display: none;
-  @include bp(large) { display: block; }
+  display: block;
+  // display: none;
+  // @include bp(large) { 
+  //   display: block; 
+  // }
 }
 
 .form-wrapper {
@@ -28,13 +31,30 @@ $color6: #e67e22;
 
   @include transition(
     opacity .5s cubic-bezier(.33,0,.2,1),
-    visibility .5s cubic-bezier(.33,0,.2,1)
+    // visibility .5s cubic-bezier(.33,0,.2,1),
+    // slower out, lets opacity go first
+    height 2s cubic-bezier(.33,0,.2,1)
   );
+  
+  // always on top
+  z-index: 13;
+  // no height
+  height: 0;
+  // stick to bottom
+  top: inherit;
+  // 
+  opacity: 0;
+
   // show
   &.form-visible { 
-    z-index: 13;
+    height: 100vh;
+    // z-index: 13;
     opacity: 1;
     visibility: visible;
+    @include transition(
+      // quick in; let elements inside take longer to mvoe up
+      height .35s cubic-bezier(.33,0,.2,1)
+    );
     .content-wrapper {
       transform: translateY(0); 
     }

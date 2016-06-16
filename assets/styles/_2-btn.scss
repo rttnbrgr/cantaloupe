@@ -30,14 +30,14 @@ $btn-color: $grey-light;
     font-size: 1.5rem;
   }
 
-  &.btn--form { 
-    display: none; 
-  }
+  // &.btn--form { display: none; }
+
+  &.btn--social { display: none; }
   
-  @include bp(large) { 
-    &.btn--form { display: inline-block; }
-    &.btn--social { display: none; }
-  }
+  // @include bp(large) { 
+  //   &.btn--form { display: inline-block; }
+  //   &.btn--social { display: none; }
+  // }
 
 
 }

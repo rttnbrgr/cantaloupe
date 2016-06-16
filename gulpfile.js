@@ -80,7 +80,7 @@ var destination = {
   style:  'dist/assets/styles',
   img:    'dist/assets/images',
   public: 'dist',
-  surge:  'aaronreq.surge.sh'
+  surge:  'aaronreq.com'
 }
 
 // Jade Compile

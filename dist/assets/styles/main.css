@@ -765,7 +765,7 @@ main {
 .content-wrapper {
   position: relative;
   color: white;
-  padding: 2rem;
+  padding: 2rem 1.2rem;
   z-index: 1;
   max-width: 40rem;
   width: 100%;
@@ -798,13 +798,8 @@ main {
   @media (min-width: 31.25em) {
     .btn {
       font-size: 1.5rem; } }
-  .btn.btn--form {
+  .btn.btn--social {
     display: none; }
-  @media (min-width: 75em) {
-    .btn.btn--form {
-      display: inline-block; }
-    .btn.btn--social {
-      display: none; } }
 
 form .btn {
   display: block;
@@ -898,10 +893,7 @@ footer {
       padding: 0 4rem 2rem; } }
 
 .form__container {
-  display: none; }
-  @media (min-width: 75em) {
-    .form__container {
-      display: block; } }
+  display: block; }
 
 .form-wrapper {
   background-color: #0e3824;
@@ -914,13 +906,20 @@ footer {
   opacity: 0;
   visibility: hidden;
   */
-  -webkit-transition: opacity 0.5s cubic-bezier(0.33, 0, 0.2, 1), visibility 0.5s cubic-bezier(0.33, 0, 0.2, 1);
-  -moz-transition: opacity 0.5s cubic-bezier(0.33, 0, 0.2, 1), visibility 0.5s cubic-bezier(0.33, 0, 0.2, 1);
-  transition: opacity 0.5s cubic-bezier(0.33, 0, 0.2, 1), visibility 0.5s cubic-bezier(0.33, 0, 0.2, 1); }
+  -webkit-transition: opacity 0.5s cubic-bezier(0.33, 0, 0.2, 1), height 2s cubic-bezier(0.33, 0, 0.2, 1);
+  -moz-transition: opacity 0.5s cubic-bezier(0.33, 0, 0.2, 1), height 2s cubic-bezier(0.33, 0, 0.2, 1);
+  transition: opacity 0.5s cubic-bezier(0.33, 0, 0.2, 1), height 2s cubic-bezier(0.33, 0, 0.2, 1);
+  z-index: 13;
+  height: 0;
+  top: inherit;
+  opacity: 0; }
   .form-wrapper.form-visible {
-    z-index: 13;
+    height: 100vh;
     opacity: 1;
-    visibility: visible; }
+    visibility: visible;
+    -webkit-transition: height 0.35s cubic-bezier(0.33, 0, 0.2, 1);
+    -moz-transition: height 0.35s cubic-bezier(0.33, 0, 0.2, 1);
+    transition: height 0.35s cubic-bezier(0.33, 0, 0.2, 1); }
     .form-wrapper.form-visible .content-wrapper {
       transform: translateY(0); }
   .form-wrapper .content-wrapper {
@@ -1043,3 +1042,7 @@ span.center-line {
 
 .debug {
   display: none !important; }
+
+.flickr-test {
+  display: block;
+  position: relative; }
