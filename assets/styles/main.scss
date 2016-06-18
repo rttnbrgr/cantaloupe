@@ -11,6 +11,8 @@
 @import url(https://fonts.googleapis.com/css?family=Playfair+Display:400,700,900);
 // Material Design Lite Demo
 @import '0-mdl-demo';
+// Toast Grid
+@import '0-toast';
 
 
 /*==========================
@@ -39,6 +41,7 @@
 @import '2-footer';
 // Form
 @import '2-form';
+@import '2-grid';
 
 
 /*==========================
@@ -87,4 +90,34 @@ span.center-line {
 
 .form-wrapper {
   // z-index: 0;
+}
+
+
+.cs__wrapper {
+  display: block;
+  @include position(fixed, 0);
+  @include display(flex);
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+  
+  h1 {
+    font-size: 3rem;
+    // font-family: 'Karla', sans-serif;
+    font-weight: 900;
+    text-transform: uppercase;
+    margin-bottom: 2rem;
+  }
+
+  p {
+    font-family: 'Inconsolata', monospace;
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+  }
+
+  img {
+    max-width: 100%;
+  }
 }
