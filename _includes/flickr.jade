@@ -1,44 +1,84 @@
-section#flickr.flickr-test
-	.container
-		h1 test here
-		p some text
-		p more text
-		#flickr-target
+section#flickr.flickr-test.section--new
+	h2 gallery
+	.grid__wrapper
+		#flickr-target.grid
 			a(href="#") Please Enable Javascript to see photos
+
 script.
 	$(function(){
-		console.log('here');
+		
 		$('#flickr-target > a').remove();
 
 		// loading gif	
 		//- jQuery('<img alt="" />').attr('id', 'loader').attr('src', 'ajax-loader.gif').appendTo('#image-container');
 		
-		//assign your api key equal to a variable
+		// Setup Flickr Call
+		var method = 'flickr.photosets.getList';
+		//- var apiKey = '34f6310f04bf47e737a233cf517c623e';
 		var apiKey = 'df59b5cbaab070441f3a940bfcc04b11';
+		var userId = '136931153%40N05';
+		var format = '&format=json&nojsoncallback=1'
+		var apiCall = 'https://api.flickr.com/services/rest/?method=' + method + '&api_key=' + apiKey + '&user_id=' + userId + format
+		
+		console.log(apiCall);
+
+		//assign your api key equal to a variable
 		var apiRequest = 'https://api.flickr.com/services/rest/?method=flickr.people.getPublicPhotos&api_key=df59b5cbaab070441f3a940bfcc04b11&user_id=136931153%40N05&format=json&per_page=499&page=3&jsoncallback=?'
 
 		//the initial json request to flickr
-		$.getJSON(apiRequest, function(data) {
+		$.getJSON(apiCall, function(data) {
 			
+			//- console.log(data.photosets.photoset);
+
 			// loop thru photos	
-			$.each(data.photos.photo, function(i, item) {
+			$.each(data.photosets.photoset, function(i, item) {
 				console.log(this);
+				
+				/*
+				 * Get all the info we need to build a gallery block
+				*/
+
+				// get the title
+				var setTitle = '<h3>' + item.title._content + '</h3>';				
+				// get the number of photos
+				var setLength = item.photos;
+				//- console.log(setLength);
+				var thumbInfo = '<div class="thumb__info">' + setTitle + setLength + '</div>';
+
+				//- console.log(item)
 
 				//build the url of the photo in order to link to it
-				var photoURL = 'http://farm' + item.farm + '.static.flickr.com/' + item.server + '/' + item.id + '_' + item.secret + '_m.jpg'
-
+				var photoURL = 'http://farm' + item.farm + '.static.flickr.com/' + item.server + '/' + item.primary + '_' + item.secret + '.jpg'
+				
 				console.log(photoURL);
-
+				
 				//turn the photo id into a variable
-				var photoID = item.id;
-
+				//- var photoID = item.id;
 
 				//create an imgCont string variable which will hold all the link location, title, author link, and author name into a text string
 				//- var imgCont = '<div class="image-container" style="background: url(' + photoURL + ');"></div>';
-				var imgCont = "<img src=" + photoURL + ">";
-													
+				//- var imgCont = "<img src=" + photoURL + ">";
+				
+				var setImg = "<img src=" + photoURL + ">";
+
+				var thumb = '<div class="thumb thumb--gallery" style="background-image:url(' + photoURL + '")"></div>'
+				var thumbWrapper = '<div class="thumbWrapper">'
+				thumbWrapper += thumb + thumbInfo + "</div>";
+
+				var galleryBlockWrapper = '<div class="grid__col grid__col--1-of-4">';
+				
+				// ATTEMPT 1
+				var galleryBlock = '<div class="thumb thumb--gallery">'
+				galleryBlock += setImg + setTitle + setLength + '</div>';				
+				var insert = galleryBlockWrapper + galleryBlock + '</div>';
+				
+				//- ATTEMPT 2
+				var insert = galleryBlockWrapper + thumbWrapper + '</div>';
+				
 				//append the 'imgCont' variable to the document
-				$(imgCont).appendTo('#flickr-target');
+				//- $(imgCont).appendTo('#flickr-target');
+
+				$(insert).appendTo('#flickr-target');
 
 			});
 		});

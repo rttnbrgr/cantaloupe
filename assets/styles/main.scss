@@ -4,8 +4,19 @@
 
 // Normalize
 @import '0-normalize';
-// Bourbon
+// Bourbon & Neat
 @import 'bourbon/bourbon';
+@import 'neat/neat';
+
+// ------------------------------------------------------------
+// Omega Reset
+// ------------------------------------------------------------
+
+@mixin omega-reset($nth) {
+  &:nth-child(#{$nth}) { margin-right: flex-gutter(); }
+  &:nth-child(#{$nth}+1) { clear: none }
+}
+
 // Google WebFonts
 @import url(https://fonts.googleapis.com/css?family=Inconsolata:400,700);
 @import url(https://fonts.googleapis.com/css?family=Playfair+Display:400,700,900);
@@ -41,7 +52,11 @@
 @import '2-footer';
 // Form
 @import '2-form';
+
 @import '2-grid';
+@import '2-project';
+
+
 
 
 /*==========================
@@ -59,9 +74,9 @@ span.center-line {
 }
 
 .size-debug {
-	@include position(absolute, 0);
-	@include size(100% 3px);
-	z-index: 1;
+	@include position(fixed, null null 0 null);
+	@include size(100% 5px);
+	z-index: 99999999;
 	background-color: $color1;
 	  @include bp(medium) { background-color: $color2; }
   @include bp(large) { background-color: $color3;  }  
@@ -75,7 +90,7 @@ span.center-line {
 
 
 .debug {
-	display: none!important;    
+	// display: none!important;    
 }
 
 
@@ -83,41 +98,22 @@ span.center-line {
 
 
 
-.flickr-test {
-  display: block;
-  position: relative;
-}
+
 
 .form-wrapper {
   // z-index: 0;
 }
 
 
-.cs__wrapper {
-  display: block;
-  @include position(fixed, 0);
-  @include display(flex);
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
 
-  
-  h1 {
-    font-size: 3rem;
-    // font-family: 'Karla', sans-serif;
-    font-weight: 900;
-    text-transform: uppercase;
-    margin-bottom: 2rem;
-  }
+/*==========================
+= Pages                    =
+==========================*/
 
-  p {
-    font-family: 'Inconsolata', monospace;
-    font-size: 1rem;
-    text-transform: uppercase;
-    letter-spacing: 3px;
-  }
+// Coming Soon
+@import '3-coming-soon';
 
-  img {
-    max-width: 100%;
-  }
-}
+
+
+
+
