@@ -36,12 +36,23 @@
 @import '1-base';
 
 
+
+
+/*==========================
+= Layout                   =
+==========================*/
+
+// Layout
+@import '2-layout';
+// Header
+@import '2-header';
+
+
+
 /*==========================
 = Modules                  =
 ==========================*/
 
-// Header
-@import '2-header';
 // Nav
 @import '2-nav';
 // Content & FullPage
@@ -74,8 +85,8 @@ span.center-line {
 }
 
 .size-debug {
-	@include position(fixed, null null 0 null);
-	@include size(100% 5px);
+	@include position(fixed, 0 null null null);
+	@include size(100% 10px);
 	z-index: 99999999;
 	background-color: $color1;
 	  @include bp(medium) { background-color: $color2; }
@@ -87,10 +98,40 @@ span.center-line {
 //   @include bp(large) { background-color: pink;  }  
 // }
 
+.container-debug {
+  // @include position(fixed, 0 1rem);
+  // border-right: 1px solid $color3;
+  // border-left: 1px solid $color3;
+  // z-index: 9999999;
+  // @include bp(medium) {
+  //   left: 2rem;
+  //   right: 2rem;
+  // }
+  // @include bp(large) {
+  //   // max-width: 
+  // }
+  @include size(null 100%);
+  margin: 0 1rem;
+  display: block;
+  
+
+  @include bp(medium) {
+    margin: 0 2rem;
+  }
+  
+  max-width: 1200px;
+  background-color: red;
+  // margin: 0 auto;
+
+  @include bp(large) {
+
+  }
+
+}
 
 
 .debug {
-	// display: none!important;    
+	display: none!important;
 }
 
 
@@ -112,6 +153,11 @@ span.center-line {
 
 // Coming Soon
 @import '3-coming-soon';
+
+
+
+
+@import '4-state';
 
 
 

@@ -1,0 +1,15 @@
+// ------------------------------------------------------------
+// Width Container
+// This will be used in conjuction with all grid__containers
+// ------------------------------------------------------------
+%container {
+  padding: 0 1rem;
+  width: 100%;
+  max-width: 77rem;
+  margin: 0 auto;
+
+  @include bp(medium) {
+    padding: 0 2rem;
+    max-width: 79rem;
+  }
+}

@@ -1,67 +1,115 @@
-nav.menu {
+// ------------------------------------------------------------
+// Navigation 
+// ------------------------------------------------------------
+
+// Can I remove teh opacity for the transition?
+
+
+.nav {
   @include position(fixed, 0);
   @include size(100% 100vh);
   z-index: 2;
+  // FLEX STUFF
   display: flex;
+  flex-direction: column;
   align-items: center;
-  // font stuff
+  justify-content: center;
+  // FONT STUFF
   background-color: $grey-light;
   text-align: center;
   font-size: 1rem;
-  // mobile nav stuff; hidden by default
+  // TRANSITION
   opacity: 0;
+  // do i need this?!?
   visibility: hidden;
   @include transition( 
     // transform .7s cubic-bezier(0,.33,.2,1),
     opacity .5s cubic-bezier(.33,0,.2,1),
     visibility .5s cubic-bezier(.33,0,.2,1)
   );
-
-  .wrapper {
+  
+  // may not need a wrapper
+  &__wrapper{
     width: 100%;
-
-    a {
-      display: block;
-      line-height: 2;
-      text-transform: uppercase;
-      letter-spacing: 0.3rem;
-      padding: 0.5em 0;         
-      // transform && transition
-      transform: translateY(-50%);
-      // long hand because libSass compile error
-      @include transition-property(transform);
-      @include transition-duration(.7s);
-      @include transition-timing-function(cubic-bezier(0,.33,.2,1) );
-    }
   }
   
-  // open mobile nav
+  &__link {
+    display: block;
+    width: 100%;
+    line-height: 2;
+    text-transform: uppercase;
+    letter-spacing: 0.3rem;
+    padding: 0.5em 0;         
+    // transform && transition
+    transform: translateY(-50%);
+    // long hand because libSass compile error
+    @include transition-property(transform);
+    @include transition-duration(.7s);
+    @include transition-timing-function(cubic-bezier(0,.33,.2,1) );    
+  }
+
+  // On mobile-nav open
   body.mobile-nav & {
     opacity: 1;
     visibility: visible;
-
-    .wrapper a { 
+    
+    &__link { 
       transform: translateY(0); 
     }
   }
 
-  // bump font-size 
-  // && padding on tablet
+  //////////////////////////
+  // PHABLET 
+  // Bump the font size
+  //////////////////////////
   @include bp(medium) {
     font-size: 2rem;
-
-    // .wrapper a {
-    //   padding: .5em 0;
-    // }
   }
 
   // large screen
   @include bp(large) {
-    
+    // New position
     position: relative;
+    @include size(auto);
+    // Swap row for column
+    flex-direction: row;
+    // Remove BG Color
     background-color: transparent;
-    width: auto;
-    height: auto;
+    
+    opacity: 1;
+    visibility: visible;
+    font-size: 1.4rem;
+
+    &__link {
+      display: inline-block;
+      padding: 0.9rem 0.5rem 0.35rem;
+      margin: 0 0.5rem;
+      line-height: 1;
+      border-bottom: 1px solid transparent;
+      // reset from hidden mobile nav
+      transform: translateY(0);
+      transition: all 0.2s linear;
+      // hover 
+      &:hover {
+        border-color: inherit;
+      }
+    }
+  }
+}
+
+
+nav.menu {  
+    
+  // large screen
+  @include bp(large) {
+    // new positioning
+    position: relative;
+    @include size(auto);
+    // flex
+    flex-direction: row;
+    // undo full page nav stuff
+    background-color: transparent;
+
     opacity: 1;
     visibility: visible;
     font-size: 1.4rem;
@@ -73,30 +121,31 @@ nav.menu {
     }
     
     // header on scroll
-    .highlighted & {
-      // border-bottom: 1px solid $grey-dark;
-      // color: $grey-light;
-      // color: $grey-dark;
+    // .highlighted & {
+    //   border-bottom: 1px solid $grey-dark;
+    //   color: $grey-light;
+    //   color: $grey-dark;
 
-      .wrapper a:hover { 
-        // border-color: $grey-dark; 
-        // border-color: dodgerblue; 
-      }
-    }
-
-    .wrapper a {
-      display: inline-block;
-      padding: 0.9rem 0.5rem 0.35rem;
-      margin: 0 0.5rem;
-      line-height: 1;
-      border-bottom: 1px solid transparent;
-      // reset from hidden mobile nav
-      transform: translateY(0);
-      transition: all 0s linear;
-      // hover 
-      &:hover {
-        border-color: inherit;
-      }
-    }
+    //   .wrapper a:hover { 
+    //     border-color: $grey-dark; 
+    //     border-color: dodgerblue; 
+    //   }
+    // }
+    
+    // .nav__link,
+    // .wrapper a {
+    //   display: inline-block;
+    //   padding: 0.9rem 0.5rem 0.35rem;
+    //   margin: 0 0.5rem;
+    //   line-height: 1;
+    //   border-bottom: 1px solid transparent;
+    //   // reset from hidden mobile nav
+    //   transform: translateY(0);
+    //   transition: all 0s linear;
+    //   // hover 
+    //   &:hover {
+    //     border-color: inherit;
+    //   }
+    // }
   }
 }

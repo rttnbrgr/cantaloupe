@@ -96,21 +96,19 @@ HIGHLIGHTER FUNCTION
 var header = document.getElementById('js-header');
 
 window.onscroll = function() {
-  var highLighted = header.classList.contains('highlighted');
+  var highlightClass = 'isHighlighted'
+  var highLighted = header.classList.contains(highlightClass);
   var scrollBreak = 40;
-  var scrollTop = window.scrollY;
-  // console.log('SCROLLED +' + window.scrollY );
-  // console.log(scrolled);
-  // console.log(scrollTop);
+  var scrollTop = window.scrollY;  
 
   if (scrollTop > scrollBreak) {
     if (!highLighted) {
       console.log('do something');
-      header.classList.toggle('highlighted');
+      header.classList.toggle(highlightClass);
     }
   } else if (highLighted) {
     console.log('highlighted, do something');
-    header.classList.toggle('highlighted');
+    header.classList.toggle(highlightClass);
   }
 };
 
@@ -131,3 +129,10 @@ function centerLine() {
 
 
 console.log('end of main.js');
+
+
+
+
+
+
+

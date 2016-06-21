@@ -1,79 +1,105 @@
-/////////////////////////////
+// ------------------------------------------------------------
 // Header
-/////////////////////////////
+// ------------------------------------------------------------
 
+// Layout Specific Variables
+$header__item-padding: 1rem;
+$header__item-padding--medium: 2rem;
+$header__item-padding--large: 0;
 
-// menu
-header {
+.header {
   position: fixed;
-  width: 100%;  
+  width: 100%;
   z-index: 11;
   font-size: 1em;
-  color: white;
-  // border-color: $color2;
+  color: white;    
 
-  .header-inner {
-    display: flex;
+  &__inner {
+    @include display(flex);
     justify-content: space-between;
+    @extend %container;
   }
-
-  .header__item {
+  
+  &__item {
     position: relative;
     z-index: 3;
-    padding: 1rem;
+    padding: $header__item-padding;
+
+    &.brand {
+      margin-left: -($header__item-padding);
+      i.fa { padding-right: 0.5em; }
+    }
+
+    &.mobile-trigger {
+      margin-right: -($header__item-padding);
+      i.fa { padding-left: 0.5em; }
+    }
   }
 
-  .brand i.fa { padding-right: 0.5em; }  
-  .mobile-trigger i.fa { padding-left: 0.5em; }
-  
-  // close the other mobile trigger
-  .mobile-nav-close { display: none; }
+  // Change Color on .mobile-nav Open
+  body.mobile-nav & { color: $grey-dark; }
 
-  // when the mobile nav opens
-  body.mobile-nav & {
-    color: $grey-dark;
-    .mobile-nav-close { display: inline; }
-    .mobile-nav-open { display: none; }
-  }  
-  
   @include transition(background-color .14s ease-in-out);
-  
-  &.highlighted {
-    background-color: $grey-light;
-    color: $grey-dark;
-    background-color: white;
+  @include transition(padding .14s ease-in-out);
 
-    // background-color: $main-color;
-    // color: 
-    border-color: $grey-dark;
-  }
-    
+
+  /*******************************
+   * TABLET SIZE
+   *******************************/
   @include bp(medium) {
     font-size: 1.25rem;
-
-    .header__item { padding: 2rem; }
+    
+    &__item { 
+      padding: $header__item-padding--medium; 
+      &.brand { margin-left: -$header__item-padding--medium; }
+      &.mobile-trigger { margin-right: -$header__item-padding--medium; }
+    }
   }
   
-  @include bp(large) {
-    font-size: 2em;
-    padding: 2rem 4rem 2rem 3rem;
-    // reset color if mobile toggle still on
-    body.mobile-nav & { color: white; }
-    // set padding
-    .header__item { padding: .5em; }    
-    // hide the mobile toggle
-    .mobile-trigger { display: none; }
-    // align flex items
-    .header-inner { align-items: baseline; }
-  }
 
-  /* Debug stuff */
-  &.debug {
-    border: 3px solid $color3;
-    .brand { background-color: $color6; }
-    .mobile-trigger { background-color: $color1; }  
-    @include bp(medium) { border: 3px solid $color5; }
-    @include bp(large) { border: 3px solid $color6; }
+  /*******************************
+   * DESKTOP
+   *******************************/
+  @include bp(large) {
+    font-size: 2rem;
+    padding: 2rem 0;
+    
+    // ALIGN FLEX ITEMS
+    &__inner { 
+      align-items: baseline; 
+    }
+    
+    // RESET COLOR IF MOBILE TOGGLE STILL ON
+    body.mobile-nav & { color: white; }
+    
+    // SET PADDING
+    &__item { 
+      padding: .5em $header__item-padding--large;
+      &.brand { 
+        margin-left: $header__item-padding--large;
+      }
+    }
+  }  
+}
+
+.mobile-trigger {
+  
+  // Hide --close trigger by default
+  &--close { display: none; }
+  
+  // Swap triggers when nav opens
+  body.mobile-nav & {
+    color: $grey-dark;
+    &--close { display: inline; }
+    &--open  { display: none;   }
+  }  
+  
+  // on desktop, hide triggers
+  @include bp(large) {
+    display: none;
   }
 }
+
+
+
 

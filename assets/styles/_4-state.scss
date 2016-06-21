@@ -1,0 +1,21 @@
+////////////////////////////////////
+// Move to 4-State
+////////////////////////////////////
+
+.isHighlighted {
+  color: $grey-dark;
+  background-color: white;
+  padding: 0;
+  /*
+   *
+   * This is super hacky, but it's also a super edge case.
+   * You basically have to be testing for responsive design
+   * It only happens when you trigger the mobile-nav and then expand 
+   * to a viewport where it you wouldn't see the mobile-nav
+   *
+   */
+  body.mobile-nav & {
+  	color: $grey-dark;
+  }
+
+}
