@@ -3,100 +3,203 @@
 /////////////////////////////
 
 $footer-bg-color: white;
+$footer-color: $grey-dark;
 
-footer {
+
+.footer {
   position: relative;
-  margin-top: calc(16% + 6em);
   margin-top: 40vh;
-  color: $grey-dark;
+  padding-bottom: 2rem;
+  color: $footer-color;
   background-color: $footer-bg-color;
-  
-  svg.footer-slope {
-    width: 100vw;
-    position: absolute;
-    fill: $grey-light;
-    bottom: 100%;
+
+  // SVG at top of the footer
+  &__slope {
+    @include size(100vw 16.875vw);
+    @include position(absolute, null 0 100%);
     margin-bottom: -1.2%;
-    height: 16.875vw;
-    left: 0;
     fill: $footer-bg-color;
   }
-
-  .footer__inner {
+  
+  // ROW; extends %container
+  &__inner {
     position: relative;
     text-align: center;
-    padding: 0 0 2rem;
+    @extend %container;
+    
+    // padding-bottom: 2rem;
+    // put on the whole footer
+  }
+  
+  // AVI
+  &__brand {
+    display: inline-block;
+    margin: 0 auto;
+    padding: 1rem 2rem;
+
+    > svg {
+      @include size(3rem 5.75rem);
+      fill: $footer-color;
+    }
+  }
+  
+  // TAGLIN && SPAN
+  &__tagline {
+    
+    span {
+      display: block;  
+    }
+    
+    a {
+      display: inline-block;
+      border-bottom: 1px solid $footer-color;
+      line-height: 1.2;
+    }
+  }
+  
+  // ICONS
+  &__social {
+    @include display(flex);
+    justify-content: center;
+    padding: 1rem;
+
+    a {
+      font-size: 1.5rem;
+      padding: 0.7em;
+      width: 2em;
+      @include size(2.5em);
+    }
+  }
+
+  @include bp(large) {
+    padding-bottom: 3rem;
+
+    &__inner {
+      text-align: left;
+    }
+
+    &__brand {
+      // mostly goin on sight here
+      @include position(absolute, null 0 0.8rem null);
+      bottom: -1rem;
+      bottom: 0;
+    }
+
+    &__tagline {
+      margin-bottom: 0;
+    }
+
+    &__social {
+      margin-left: -1rem;
+      padding: 0;
+      justify-content: flex-start;
+
+      a {
+        @include size(auto);
+        font-size: 2rem;
+        padding: 1rem;
+      }
+      
+      // border-bottom: 1px solid coral;      
+    }
+  }
+
+
+}
+
+footer {
+  // position: relative;
+  // margin-top: calc(16% + 6em);
+  // margin-top: 40vh;
+  // color: $grey-dark;
+  // background-color: $footer-bg-color;
+  
+  // svg.footer-slope {
+    // width: 100vw;
+    // height: 16.875vw;
+    // position: absolute;
+    // bottom: 100%;
+    // left: 0;
+    // margin-bottom: -1.2%;    
+    // fill: $grey-light;
+      // fill: $footer-bg-color;
+  // }
+
+  .footer__inner {
+    // position: relative;
+    // text-align: center;
+    // padding: 0 0 2rem;
 
     .footer__brand {
-      display: inline-block;
-      margin: 0 auto;
-      padding: 1em 2em;      
+      // display: inline-block;
+      // margin: 0 auto;
+      // padding: 1em 2em;      
 
       svg {
-        @include size(auto 5.75rem);
-        fill: $grey-dark;
+        // @include size(auto 5.75rem);
+        // fill: $grey-dark;
       }
     }
 
     .footer__tagline {
       
       span {
-        display: block;
+        // display: block;
         
         a {
-          display: inline-block;
-          border-bottom: 1px solid $grey-dark;          
-          line-height: 1.2;
+          // display: inline-block;
+          // border-bottom: 1px solid $grey-dark;          
+          // line-height: 1.2;
         }
       }
     }
 
-    .footer__social {    
-      display: flex;
-      justify-content: center;
-      padding: 1rem;
+    .footer__social {
+      // display: flex;
+      // justify-content: center;
+      // padding: 1rem;
 
       a {
-        font-size: 1.5rem;
-        padding: 0.7rem;
-        width: 2em;       
+        // font-size: 1.5rem;
+        // padding: 0.7rem;
+        // width: 2em;
       }
     }
     
     @include bp(large) {
-      text-align: left;
-      padding: 0;
+      // text-align: left;
+      // padding: 0;
 
-      .footer__brand {
-        position: absolute;
-        right: 0;
-        bottom: 0;
-        @include position(absolute, null 0 0 null);
-      }
+      // .footer__brand {
+      //   position: absolute;
+      //   right: 0;
+      //   bottom: 0;
+      //   @include position(absolute, null 0 0 null);
+      //   bottom: .9rem;
+      // }
 
-      .footer__tagline {
-        text-align: left;
-        display: inline-block;
-        margin-bottom: 0;
-      }
+      // .footer__tagline {
+      //   text-align: left;
+      //   display: inline-block;
+      //   margin-bottom: 0;
+      // }
 
       .footer__social {
-        width: auto;
-        justify-content: flex-start;
-        padding: 0;
-        width: 50%;
-        margin-left: -1rem;
-        a {
-          font-size: 2rem;
-          padding: 1rem;
-          width: initial;
-
-        }
+        // width: auto;
+        // justify-content: flex-start;
+        // padding: 0;
+        // width: 50%;
+        // margin-left: -1rem;
+        // a {
+        //   font-size: 2rem;
+        //   padding: 1rem;
+        //   width: initial;
+        // }
       }
     }
   }
   
-  @include bp(large) {
-    padding: 0 4rem 2rem;
-  }
+  // @include bp(large) {
+  //   padding: 0 4rem 2rem;
+  // }
 }

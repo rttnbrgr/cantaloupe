@@ -20,7 +20,7 @@
 
 		@include bp(large) {
 			@include omega-reset(3n)
-			@include span-columns(2);
+			@include span-columns(3);
 			@include omega(4n);	
 		}
 	}

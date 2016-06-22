@@ -13,14 +13,15 @@ span.center-line {
 }
 
 .size-debug {
-	@include position(fixed, 0 null null null);
+  // @include position(fixed, 0 null null null);
+	@include position(fixed, null null 0 null);
 	@include size(100% 10px);
 	z-index: 99999999;
 	background-color: $color1;
 	  @include bp(medium) { background-color: $color2; }
   @include bp(large) { background-color: $color3;  }  
 }
-// #Footer-Slope { 
+// footer__slope { 
 //   background-color: blue;  
 //   @include bp(medium) { background-color: purple; }
 //   @include bp(large) { background-color: pink;  }  
@@ -38,7 +39,7 @@ span.center-line {
   // @include bp(large) {
   //   // max-width: 
   // }
-  @include size(null 100%);
+  @include size(auto 100%);
   margin: 0 1rem;
   display: block;
   
@@ -52,6 +53,6 @@ span.center-line {
   // margin: 0 auto;
 
   @include bp(large) {
-
+    margin: 0 auto;
   }
 }
