@@ -35,17 +35,6 @@ $btn-color-lopacity: rgba(255,255,255, .35);
     font-size: 1.5rem;
   }
   
-  // the two buttons in the main section
-  // once the old one is gone from markup, 
-  // this can be removed
-  // &.btn--social { display: ;: none; }
-  // &.btn--form { display: none; }
-  
-  // @include bp(large) { 
-  //   &.btn--form { display: inline-block; }
-  //   &.btn--social { display: none; }
-  // }
-  
   // ------------------------------------------
   // Text Only Buttons  
   // Right now we are using the .btn classs
@@ -75,29 +64,3 @@ $btn-color-lopacity: rgba(255,255,255, .35);
     }
   }
 }
-
-// form .btn {
-// 	display: block;
-// 	margin-left: auto;
-// 	margin-right: auto;
-// }
-//
-// .btn-text {
-// 	font-size: 1rem;
-// 	border-color: transparent;
-//   border-bottom-color: $btn-color;
-// 	border-bottom-color: rgba(255,255,255, .35);
-//   color: rgba(255,255,255, .35);
-//   min-width: 0;
-//   padding: .25rem;
-//
-//   &:hover {
-//     color: rgba(255,255,255, 1);
-//     background-color: transparent;
-//     border-bottom-color: white;
-//   }
-//
-//   @include bp(medium) {
-//     font-size: 1.25rem;
-//   }
-// }
