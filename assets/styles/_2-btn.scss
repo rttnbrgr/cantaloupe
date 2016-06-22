@@ -1,25 +1,30 @@
+// ------------------------------------------------------------
+// Button Module
+// let's refactor and make it usable
+// ------------------------------------------------------------
+
+// module variables
 $btn-color: $grey-light;
+$btn-color--dark: $grey-dark;
+$btn-color-lopacity: rgba(255,255,255, .35);
 
 .btn {
-  padding: 1rem;
-  font-size: 1.25rem;
-  text-transform: uppercase;
-  border: 1px solid $btn-color;
-  background-color: transparent;
-  color: white;
   display: inline-block;
-  text-rendering: optimizeLegibility;
-  margin-top: 1rem;
-  min-width: 11.625rem;
-  padding: .65rem;
-  
   padding: .65em;
   margin-top: 1em;
+  min-width: 11.625rem;  
+  font-size: 1.25rem;
+  line-height: 1;
+  text-transform: uppercase;
+  text-rendering: optimizeLegibility;
+  color: $btn-color;
+  background-color: transparent;
+  border: 1px solid $btn-color;
 
   &:hover {
-    background-color: $btn-color;
-    color: $grey-dark;
     cursor: pointer;
+    color: $grey-dark;
+    background-color: $btn-color;
   }
 
   &:focus {
@@ -29,41 +34,70 @@ $btn-color: $grey-light;
   @include bp(medium) {
     font-size: 1.5rem;
   }
-
+  
+  // the two buttons in the main section
+  // once the old one is gone from markup, 
+  // this can be removed
+  // &.btn--social { display: ;: none; }
   // &.btn--form { display: none; }
-
-  &.btn--social { display: none; }
   
   // @include bp(large) { 
   //   &.btn--form { display: inline-block; }
   //   &.btn--social { display: none; }
   // }
+  
+  // ------------------------------------------
+  // Text Only Buttons  
+  // Right now we are using the .btn classs
+  // And adding this class
+  // Should we use only one class?
+  // ------------------------------------------
+  &--text {
+    display: block;
+    margin: 1em auto 0;
+    padding: .25rem;
+    font-size: 1rem;
+    color: $btn-color-lopacity;
 
+    // Are we overriding the btn class?
+    min-width: 0;
+    border-color: transparent;
+    border-bottom: 1px solid $btn-color-lopacity;
+    
+    &:hover {
+      color: rgba(255,255,255, 1);
+      background-color: transparent;
+      border-bottom-color: white;
+    }
 
-}
-
-form .btn {
-	display: block;
-	margin-left: auto;
-	margin-right: auto;
-}
-
-.btn-text {
-	font-size: 1rem;
-	border-color: transparent;
-  border-bottom-color: $btn-color;
-	border-bottom-color: rgba(255,255,255, .35);
-  color: rgba(255,255,255, .35);
-  min-width: 0;
-  padding: .25rem;
-
-  &:hover {
-    color: rgba(255,255,255, 1);
-    background-color: transparent;
-    border-bottom-color: white;
+    @include bp(medium) {
+      font-size: 1.25rem;
+    }
   }
-
-  @include bp(medium) {
-    font-size: 1.25rem;
-  }
 }
+
+// form .btn {
+// 	display: block;
+// 	margin-left: auto;
+// 	margin-right: auto;
+// }
+//
+// .btn-text {
+// 	font-size: 1rem;
+// 	border-color: transparent;
+//   border-bottom-color: $btn-color;
+// 	border-bottom-color: rgba(255,255,255, .35);
+//   color: rgba(255,255,255, .35);
+//   min-width: 0;
+//   padding: .25rem;
+//
+//   &:hover {
+//     color: rgba(255,255,255, 1);
+//     background-color: transparent;
+//     border-bottom-color: white;
+//   }
+//
+//   @include bp(medium) {
+//     font-size: 1.25rem;
+//   }
+// }

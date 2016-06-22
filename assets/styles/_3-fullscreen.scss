@@ -1,0 +1,14 @@
+// Fullscreen
+.fullscreen__bg {
+  @include position(fixed, 0);
+  overflow: hidden;  
+  
+  &--color {
+    background-color: rgba(14, 56, 36,.3);
+  }
+
+  &--photo {
+    background: transparent url('../images/landing-bg.jpg') right bottom no-repeat;
+    background-size: cover;
+  }
+}

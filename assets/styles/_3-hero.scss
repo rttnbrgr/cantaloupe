@@ -1,0 +1,42 @@
+// ------------------------------------------------------------
+// HERO
+// A center container. Trying to hack the container 
+// element but maybe it makes more sense to use it
+// alone. Well it's all here.
+// ------------------------------------------------------------
+.hero {
+	text-align: center;
+	position: relative;  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  flex-direction: column;
+  
+  // this for the p and h1
+  color: white;
+
+
+  &__row {
+    @extend %container;
+  	position: relative;
+  	z-index: 1;
+
+  	// shorten the row?
+    max-width: 52rem;
+
+		// reset the row length
+    @include bp(large) {
+    	max-width: 79rem;
+    }
+  }
+
+  &__wrapper {
+  	@include span-columns(12);  	
+	  
+	  @include bp(large) {  	
+			@include span-columns(8);
+	  	@include shift(2);
+	  }
+  }
+}

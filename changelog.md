@@ -54,3 +54,6 @@ http://stackoverflow.com/questions/1145588/cannot-properly-set-the-accept-http-h
 ### Github
 http://lea.verou.me/2011/10/easily-keep-gh-pages-in-sync-with-master/
 http://oli.jp/2011/github-pages-workflow/
+
+## grid stuff
+http://www.joshfry.me/blog/2013/05/13/omega-reset-for-bourbon-neat/

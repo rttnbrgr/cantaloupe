@@ -17,12 +17,16 @@ mobileNavToggle.addEventListener('click', function() {
   console.log('mobileNavToggle just ran again');
 });
 
+////////////////////////////////////////////////
+// couldn't figure out what this was, but 
+// it was for the mobile button that just toggled the menu
+// that has been removed from the markup now
 // this is for the button that will get removed eventually
-var navOpenBtn = document.getElementById('js-menuOpen');
-navOpenBtn.addEventListener('click', function() {
-  body.classList.toggle('mobile-nav');
-  console.log('button nav toggle');
-})
+// var navOpenBtn = document.getElementById('js-menuOpen');
+// navOpenBtn.addEventListener('click', function() {
+//   body.classList.toggle('mobile-nav');
+//   console.log('button nav toggle');
+// })
 
 
 /*

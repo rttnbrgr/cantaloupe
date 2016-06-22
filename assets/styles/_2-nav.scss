@@ -3,8 +3,6 @@
 // ------------------------------------------------------------
 
 // Can I remove teh opacity for the transition?
-
-
 .nav {
   @include position(fixed, 0);
   @include size(100% 100vh);
