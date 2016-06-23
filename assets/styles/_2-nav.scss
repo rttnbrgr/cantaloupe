@@ -1,5 +1,8 @@
 // ------------------------------------------------------------
 // Navigation 
+// This should probably be a module,
+// but it seems so tied to the header, 
+// that it's going with the layout partials.
 // ------------------------------------------------------------
 
 // Can I remove teh opacity for the transition?
@@ -24,12 +27,7 @@
     // transform .7s cubic-bezier(0,.33,.2,1),
     opacity .5s cubic-bezier(.33,0,.2,1),
     visibility .5s cubic-bezier(.33,0,.2,1)
-  );
-  
-  // may not need a wrapper
-  &__wrapper{
-    width: 100%;
-  }
+  );  
   
   &__link {
     display: block;
@@ -73,9 +71,10 @@
     flex-direction: row;
     // Remove BG Color
     background-color: transparent;
-    
+    // Reset Opacity/visibility
     opacity: 1;
     visibility: visible;
+    // Font set
     font-size: 1.4rem;
 
     &__link {
@@ -92,58 +91,5 @@
         border-color: inherit;
       }
     }
-  }
-}
-
-
-nav.menu {  
-    
-  // large screen
-  @include bp(large) {
-    // new positioning
-    position: relative;
-    @include size(auto);
-    // flex
-    flex-direction: row;
-    // undo full page nav stuff
-    background-color: transparent;
-
-    opacity: 1;
-    visibility: visible;
-    font-size: 1.4rem;
-    
-    // reset for mobile nav
-    body.mobile-nav & {
-      // color: white;
-      color: inherit;
-    }
-    
-    // header on scroll
-    // .highlighted & {
-    //   border-bottom: 1px solid $grey-dark;
-    //   color: $grey-light;
-    //   color: $grey-dark;
-
-    //   .wrapper a:hover { 
-    //     border-color: $grey-dark; 
-    //     border-color: dodgerblue; 
-    //   }
-    // }
-    
-    // .nav__link,
-    // .wrapper a {
-    //   display: inline-block;
-    //   padding: 0.9rem 0.5rem 0.35rem;
-    //   margin: 0 0.5rem;
-    //   line-height: 1;
-    //   border-bottom: 1px solid transparent;
-    //   // reset from hidden mobile nav
-    //   transform: translateY(0);
-    //   transition: all 0s linear;
-    //   // hover 
-    //   &:hover {
-    //     border-color: inherit;
-    //   }
-    // }
   }
 }
