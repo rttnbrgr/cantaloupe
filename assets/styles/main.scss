@@ -22,8 +22,6 @@
 @import url(https://fonts.googleapis.com/css?family=Playfair+Display:400,700,900);
 // Material Design Lite Demo
 @import '0-mdl-demo';
-// Toast Grid
-@import '0-toast';
 
 
 /*==========================
@@ -36,8 +34,6 @@
 @import '1-base';
 
 
-
-
 /*==========================
 = 2 - Layout               =
 ==========================*/
@@ -46,7 +42,8 @@
 @import '2-layout';
 // Header
 @import '2-header';
-
+// Footer
+@import '2-footer';
 
 
 /*==========================
@@ -56,18 +53,14 @@
 // Nav
 @import '2-nav';
 
-
-
-// Footer
-@import '2-footer';
 // Form
 @import '2-form';
-
+// Grids n stuff
 @import '2-grid';
 @import '2-project';
 
-
-
+// ------------------------------------
+// Refactored stuff
 
 // Hero
 @import '3-hero';
@@ -76,9 +69,7 @@
 // Button
 @import '3-btn';
 
-
-
-// ADD MORE REFACTORED MODULES HERE
+// ADD MORE REFACTORED MODULES ABOVE
 // ------------------------------------
 
 // Coming Soon
