@@ -22,7 +22,7 @@ $grid-columns: 12 !default;
 ///
 /// @type Number (Unit)
 ///
-$max-width: 1200px !default;
+// $max-width: 1200px !default;
 
 /// When set to true, it sets the box-sizing property of all elements to `border-box`. Set with a `!global` flag.
 ///
@@ -61,6 +61,7 @@ $default-layout-direction: LTR !default;
 // $column: golden-ratio(1em, 3) !default; // Column width
 $gutter: modular-scale(3, 1em, $golden) !default;
 // $gutter: golden-ratio(1em, 3) !default; // Gutter between each two columns
+$max-width: 79rem !default;
 
 // ------------------------------------------------------------
 // Set Bourbon's flex-grid variables to match what Neat is doing

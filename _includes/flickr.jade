@@ -1,8 +1,7 @@
-section#flickr.flickr-test.section--new
-	h2 gallery
-	.grid__wrapper
-		#flickr-target.grid
-			a(href="#") Please Enable Javascript to see photos
+section#gallery-photo.flickr-test.section
+	h2.gallery__headline gallery
+	#flickr-target.gallery__row
+		a(href="#") Please Enable Javascript to see photos
 
 script.
 	$(function(){
@@ -48,7 +47,7 @@ script.
 				//- console.log(item)
 
 				//build the url of the photo in order to link to it
-				var photoURL = 'http://farm' + item.farm + '.static.flickr.com/' + item.server + '/' + item.primary + '_' + item.secret + '.jpg'
+				var photoURL = 'http://farm' + item.farm + '.static.flickr.com/' + item.server + '/' + item.primary + '_' + item.secret + '.jpgg'
 				
 				console.log(photoURL);
 				
@@ -61,10 +60,11 @@ script.
 				
 				var setImg = "<img src=" + photoURL + ">";
 
-				var thumb = '<div class="thumb thumb--gallery" style="background-image:url(' + photoURL + '")"></div>'
-				var thumbWrapper = '<div class="thumbWrapper">'
+				var thumb = '<div class="thumb thumb--gallery thumb--photo" style="background-image:url(' + photoURL + '")"></div>'
+				var thumbWrapper = '<div class="thumb__wrapper">'
 				thumbWrapper += thumb + thumbInfo + "</div>";
-
+				
+				// don't need this
 				var galleryBlockWrapper = '<div class="grid__col grid__col--1-of-4">';
 				
 				// ATTEMPT 1
@@ -73,7 +73,8 @@ script.
 				var insert = galleryBlockWrapper + galleryBlock + '</div>';
 				
 				//- ATTEMPT 2
-				var insert = galleryBlockWrapper + thumbWrapper + '</div>';
+				//- var insert = galleryBlockWrapper + thumbWrapper + '</div>';
+				var insert = thumbWrapper + '</div>';
 				
 				//append the 'imgCont' variable to the document
 				//- $(imgCont).appendTo('#flickr-target');

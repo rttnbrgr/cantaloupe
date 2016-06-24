@@ -1,0 +1,23 @@
+$section-bg-color: white;
+$section-bg-color: whitesmoke;
+
+$thumb-color-secondary: $grey-light;
+
+.section,
+.gallery {
+	display: block;
+	// padding: 3rem 0;
+	position: relative;
+	background-color: $section-bg-color;
+	overflow: hidden;
+
+	&__row {
+		@include outer-container;
+		@extend %container;
+	}	
+}
+
+// flickr debug
+.flickr-test {
+  background-color: whitesmoke;
+}

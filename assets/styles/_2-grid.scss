@@ -1,84 +1,28 @@
-a.action {
-	font-family: 'Karla';
-	font-weight: 900;
-	text-transform: uppercase;
-	font-size: .875;
-	display: block;
-	// margin: 0.7em 0 0;
-	line-height: 1;
-	padding: 0.2rem 0;
-}
+// .grid__wrapper {
+// 	padding: 0 2em;
+// 	width: 100%;
+// 	// max-width: 800px;
+// 	margin: 0 auto;
+// 	max-width: 77em; // 1200 + 
 
-
-.section--new {
-	display: block;
-	position: relative;
-	background-color: white;
-	// min-height: 100vh;
-	padding: 3rem 0;
-	overflow: hidden;
-}
-
-.flickr-test {
-  background-color: whitesmoke;
-}
-
-.grid__wrapper {
-	padding: 0 2em;
-	width: 100%;
-	// max-width: 800px;
-	margin: 0 auto;
-	max-width: 77em; // 1200 + 
-
-	// remove whtiespace fix
-	> .grid > .grid__col { margin-right: 0; }
-}
-
-.box {
-	padding-top: 100%;
-	@include size(100% 2em);
-	background-color: $color5;
-	display: block;
-}
+// 	// remove whtiespace fix
+// 	> .grid > .grid__col { margin-right: 0; }
+// }
 
 .thumb {
-	padding: 0;
-	height: auto;
+	// padding: 0;
+	// height: auto;
 	img {
 		max-width: 100%;
 	}
 
-	&.thumb--gallery {
-		padding-top: 100%;
-	  background-color: blanchedalmond;
-	  position: relative;
-	  // background-image: url('http://farm8.static.flickr.com/7200/27310367900_27aa57c3d9.jpg');
-	  background-size: cover;
-	  background-position: center center;
-	}
+	// &.thumb--gallery {
+	// 	padding-top: 100%;
+	//   background-color: blanchedalmond;
+	//   position: relative;
+	//   // background-image: url('http://farm8.static.flickr.com/7200/27310367900_27aa57c3d9.jpg');
+	//   background-size: cover;
+	//   background-position: center center;
+	// }
 
-}
-
-
-.gallery__wrapper.neat {
-	padding: 0 1rem;
-	width: 10%;
-	@include outer-container;
-
-	.thumbnail__wrapper {
-		@include span-columns(6);
-		@include omega(2n);
-		
-		@include bp(medium) {
-			@include omega-reset(2n)
-			@include span-columns(4);
-			@include omega(3n);
-		}
-
-		@include bp(large) {
-			@include omega-reset(3n)
-			@include span-columns(3);
-			@include omega(4n);	
-		}
-	}
 }
