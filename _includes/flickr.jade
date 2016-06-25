@@ -6,22 +6,23 @@ section#gallery-photo.flickr-test.section
 script.
 	$(function(){
 		
+		// Remove javascript warning
 		$('#flickr-target > a').remove();
 
-		// loading gif	
+		// add loading.gif
 		//- jQuery('<img alt="" />').attr('id', 'loader').attr('src', 'ajax-loader.gif').appendTo('#image-container');
 		
 		// Setup Flickr Call
+		var flickrAPI = 'https://api.flickr.com/services/rest/?method='
 		var method = 'flickr.photosets.getList';
 		//- var apiKey = '34f6310f04bf47e737a233cf517c623e';
 		var apiKey = 'df59b5cbaab070441f3a940bfcc04b11';
 		var userId = '136931153%40N05';
+		var perPage = "&page=1&per_page=12"
 		var format = '&format=json&nojsoncallback=1'
-		var apiCall = 'https://api.flickr.com/services/rest/?method=' + method + '&api_key=' + apiKey + '&user_id=' + userId + format
-		
-		console.log(apiCall);
-
-		//assign your api key equal to a variable
+		var apiCall = 'https://api.flickr.com/services/rest/?method=' + method + '&api_key=' + apiKey + '&user_id=' + userId + perPage + format		
+	
+		// from tutorial?
 		var apiRequest = 'https://api.flickr.com/services/rest/?method=flickr.people.getPublicPhotos&api_key=df59b5cbaab070441f3a940bfcc04b11&user_id=136931153%40N05&format=json&per_page=499&page=3&jsoncallback=?'
 
 		//the initial json request to flickr
@@ -32,54 +33,103 @@ script.
 			// loop thru photos	
 			$.each(data.photosets.photoset, function(i, item) {
 				console.log(this);
+				//- console.log('id', item.id);
 				
 				/*
 				 * Get all the info we need to build a gallery block
-				*/
-
+				 */
+				
+				// BUILD thumb__info
+				// ------------------------------------------------------------
 				// get the title
 				var setTitle = '<h3>' + item.title._content + '</h3>';				
 				// get the number of photos
 				var setLength = item.photos;
-				//- console.log(setLength);
+				// build thumb__info div
 				var thumbInfo = '<div class="thumb__info">' + setTitle + setLength + '</div>';
 
-				//- console.log(item)
-
+				// BUILD thumb
+				// ------------------------------------------------------------
 				//build the url of the photo in order to link to it
-				var photoURL = 'http://farm' + item.farm + '.static.flickr.com/' + item.server + '/' + item.primary + '_' + item.secret + '.jpgg'
-				
+				var photoURL = 'http://farm' + item.farm + '.static.flickr.com/' + item.server + '/' + item.primary + '_' + item.secret + '.jpg'	
 				console.log(photoURL);
+				// build photoset click-thru url
+				var photosetURL = "https://www.flickr.com/photos/" + userId + "/albums/" + item.id
+				console.log(photosetURL);
 				
+				//- var httpsFlickr = "https://www.flickr.com/photos/"
+				//- var photosetURL = httpsFlickr + userId + "/albums/" + item.id
+
 				//turn the photo id into a variable
 				//- var photoID = item.id;
 
 				//create an imgCont string variable which will hold all the link location, title, author link, and author name into a text string
 				//- var imgCont = '<div class="image-container" style="background: url(' + photoURL + ');"></div>';
 				//- var imgCont = "<img src=" + photoURL + ">";
+				//- var setImg = "<img src=" + photoURL + ">";				
 				
-				var setImg = "<img src=" + photoURL + ">";
+				// setup image for thumb
+				// not being used; using bg-img method
+				var thumbImg = "<img src=" + photoURL + ">";
 
-				var thumb = '<div class="thumb thumb--gallery thumb--photo" style="background-image:url(' + photoURL + '")"></div>'
-				var thumbWrapper = '<div class="thumb__wrapper">'
-				thumbWrapper += thumb + thumbInfo + "</div>";
+				
+				/*
+				 * SET UP THE THUMB MARKUP
+				 */
+
+				//- var thumb = '<div class="thumb thumb--gallery thumb--photo" style="background-image:url(' + photoURL + '")"></div>'
+				//- var thumbTarget = 'target="_blank" '
+				//- var thumbTHING = '?'
+				//- var thumbClass = 'class="thumb thumb--gallery thumb--photo" '
+				//- var thumbStyle = 'style="background-image:url('
+				//- var thumbTest = '<a ' + thumbTarget + 
+				
+				// set up thumb; add href; add class names; add image as bg image
+				//- var thumb2 = '<a target="_blank" href="' + photosetURL + '" '
+				// add classes and inline-style for photo BG
+				//- thumb2 += 'class="thumb thumb--gallery thumb--photo" style="background-image:url(';
+				// add photo bg and close tag
+				//- thumb2 += photoURL + ')"></a>';
+				//- console.log('thumb2', thumb2);
+
+				//- var thumb = '<a target="_blank" href="' + photosetURL +'" class="thumb thumb--photo" style="background-image:url(' + photoURL + '")"></a>'
+
+
+				// set up thumb; add href; add class names; add image as bg image
+				var thumb = '<a target="_blank" href="' + photosetURL +'" class="thumb thumb--photo" '
+				// add photo as bg-image and close tag
+				thumb += 'style="background-image:url(' + photoURL + '")"></a>'
+
+
+				/*
+				 * COMBINE THUMB BITS
+				 */
+
+				// update thumb markup
+				//- var thumb = '<div class="thumb thumb--gallery thumb--photo">' + thumbImg + '</div>'
+
+				//- var thumbWrapper = '<div class="thumb__wrapper">'
+				// add thumb, thumb-info and close wrapper
+				//- thumbWrapper += thumb + thumbInfo + "</div>";
+				
+
+				var thumbWrapper = '<div class="thumb__wrapper">' + thumb + thumbInfo + "</div>";
 				
 				// don't need this
-				var galleryBlockWrapper = '<div class="grid__col grid__col--1-of-4">';
+				//- var galleryBlockWrapper = '<div class="grid__col grid__col--1-of-4">';
 				
 				// ATTEMPT 1
-				var galleryBlock = '<div class="thumb thumb--gallery">'
-				galleryBlock += setImg + setTitle + setLength + '</div>';				
-				var insert = galleryBlockWrapper + galleryBlock + '</div>';
+				//- var galleryBlock = '<div class="thumb thumb--gallery">'
+				//- galleryBlock += setImg + setTitle + setLength + '</div>';				
+				//- var insert = galleryBlockWrapper + galleryBlock + '</div>';
 				
 				//- ATTEMPT 2
-				//- var insert = galleryBlockWrapper + thumbWrapper + '</div>';
-				var insert = thumbWrapper + '</div>';
+				//- var insert = thumbWrapper + '</div>';
 				
-				//append the 'imgCont' variable to the document
-				//- $(imgCont).appendTo('#flickr-target');
-
-				$(insert).appendTo('#flickr-target');
+				// append to the flickr-target
+				//- $(insert).appendTo('#flickr-target');
+				
+				$(thumbWrapper).appendTo('#flickr-target');
 
 			});
 		});

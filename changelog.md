@@ -57,3 +57,7 @@ http://oli.jp/2011/github-pages-workflow/
 
 ## grid stuff
 http://www.joshfry.me/blog/2013/05/13/omega-reset-for-bourbon-neat/
+
+## Flickr Api && Stuff
+http://code.flickr.net/2015/03/24/much-photos/
+http://kylerush.net/blog/tutorial-flickr-api-javascript-jquery-ajax-json-build-detailed-photo-wall/
